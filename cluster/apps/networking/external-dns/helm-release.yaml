@@ -24,6 +24,7 @@ spec:
     google:
       project: "${GCP_PROJECT}"
       serviceAccountSecret: external-dns-cloud-credentials
+      serviceAccountSecretKey: credentialsjson
     extraArgs:
       - --annotation-filter=external-dns/is-public in (true)
     policy: sync
