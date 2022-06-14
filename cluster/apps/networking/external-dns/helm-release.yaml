@@ -20,20 +20,11 @@ spec:
   values:
     interval: 5m
     logLevel: debug
-    provider: cloudflare
-    env:
-      - name: CF_API_EMAIL
-        valueFrom:
-          secretKeyRef:
-            name: external-dns-cloud-credentials
-            key: email
-      - name: CF_API_KEY
-        valueFrom:
-          secretKeyRef:
-            name: external-dns-cloud-credentials
-            key: api-key
+    provider: google
+    google:
+      project: "${GCP_PROJECT}"
+      serviceAccountSecret: external-dns-cloud-credentials
     extraArgs:
-      - --cloudflare-proxied
       - --annotation-filter=external-dns/is-public in (true)
     policy: sync
     sources:

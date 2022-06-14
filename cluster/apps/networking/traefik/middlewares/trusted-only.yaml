@@ -1,0 +1,23 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: trusted-ips
+  namespace: networking
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 17.0.0.0/8
+      - 10.0.0.0/8
+      - 172.16.0.0/12
+      - 192.168.0.0/16
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: trusted-only
+  namespace: networking
+spec:
+  chain:
+    middlewares:
+      - name: trusted-ips

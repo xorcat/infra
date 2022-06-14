@@ -5,18 +5,18 @@ tasks:
 
   init:
     desc: Initialize terraform dependencies
-    dir: provision/terraform/cloudflare
+    dir: provision/terraform/gcp
     cmds:
       - terraform init {{.CLI_ARGS}}
 
   plan:
     desc: Show the changes terraform will make
-    dir: provision/terraform/cloudflare
+    dir: provision/terraform/gcp
     cmds:
       - terraform plan {{.CLI_ARGS}}
 
   apply:
-    desc: Apply the changes to Cloudflare
-    dir: provision/terraform/cloudflare
+    desc: Apply the changes to GCP
+    dir: provision/terraform/gcp
     cmds:
       - terraform apply {{.CLI_ARGS}}
