@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - error-pages.yaml
   - cloudflare-only.yaml
+  - github-only.yaml
   - trusted-only.yaml
   - internal-only.yaml
