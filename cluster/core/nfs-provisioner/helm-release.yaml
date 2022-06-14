@@ -25,6 +25,5 @@ spec:
     nfs:
       server: "${NFS_SERVER}"
       path: "${NFS_PATH}"
-      mountOptions:
-        - nfsvers=3
+      mountOptions: "nfsvers=3"
     replicaCount: 1
