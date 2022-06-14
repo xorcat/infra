@@ -35,6 +35,10 @@ spec:
       - mountPath: /creds
         name: external-dns-cloud-credentials
         readOnly: true
+    extraVolumes:
+      - name: external-dns-cloud-credentials
+        secret:
+          secretName: external-dns-cloud-credentials
     sources:
       - ingress
     txtPrefix: "k8s."
