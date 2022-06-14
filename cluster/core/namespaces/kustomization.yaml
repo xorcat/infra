@@ -5,4 +5,5 @@ resources:
   - cert-manager.yaml
   - metallb-system.yaml
   - networking.yaml
+  - nfs-provisioner.yaml
   - system-upgrade.yaml
