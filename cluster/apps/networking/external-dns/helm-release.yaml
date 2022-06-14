@@ -28,6 +28,13 @@ spec:
     extraArgs:
       - --annotation-filter=external-dns/is-public in (true)
     policy: sync
+    env:
+      - name: GOOGLE_APPLICATION_CREDENTIALS
+        value: /creds/credentialsjson
+    extraVolumeMounts:
+      - mountPath: /creds
+        name: external-dns-cloud-credentials
+        readOnly: true
     sources:
       - ingress
     txtPrefix: "k8s."
