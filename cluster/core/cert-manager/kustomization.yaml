@@ -5,8 +5,3 @@ resources:
   - letsencrypt-production.yaml
   - letsencrypt-staging.yaml
   - secret.sops.yaml
-spec:
-  postBuild:
-    substituteFrom:
-      - kind: secret
-        name: cert-manager-cloud-credentials

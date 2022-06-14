@@ -23,3 +23,5 @@ spec:
         name: cluster-settings
       - kind: Secret
         name: cluster-secrets
+      - kind: Secret
+        name: external-dns-cloud-credentials

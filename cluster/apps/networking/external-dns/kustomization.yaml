@@ -4,8 +4,3 @@ kind: Kustomization
 resources:
   - helm-release.yaml
   - secret.sops.yaml
-spec:
-  postBuild:
-    substituteFrom:
-      - kind: secret
-        name: external-dns-cloud-credentials
