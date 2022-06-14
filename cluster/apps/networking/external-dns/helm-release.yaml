@@ -21,12 +21,13 @@ spec:
     interval: 5m
     logLevel: debug
     provider: google
-    google:
-      project: "${GCP_PROJECT}"
-      serviceAccountSecret: external-dns-cloud-credentials
-      serviceAccountSecretKey: credentialsjson
+    # google:
+    #   project: "${GCP_PROJECT}"
+    #   serviceAccountSecret: external-dns-cloud-credentials
+    #   serviceAccountSecretKey: credentialsjson
     extraArgs:
       - --annotation-filter=external-dns/is-public in (true)
+      - --google-project=${GCP_PROJECT}
     policy: sync
     env:
       - name: GOOGLE_APPLICATION_CREDENTIALS
