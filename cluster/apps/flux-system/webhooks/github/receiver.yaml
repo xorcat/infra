@@ -7,7 +7,6 @@ metadata:
 spec:
   type: github
   events:
-    - ping
     - push
   secretRef:
     name: github-webhook-secret
