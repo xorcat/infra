@@ -15,7 +15,7 @@ spec:
             project: "${GCP_PROJECT}"
             serviceAccountSecretRef:
               name: cert-manager-cloud-credentials
-              key: credentials.json
+              key: credentialsjson
         selector:
           dnsZones:
             - ${SECRET_DOMAIN}

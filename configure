@@ -54,8 +54,14 @@ main() {
             > "${PROJECT_DIR}/cluster/core/cert-manager/secret.sops.yaml"
         envsubst < "${PROJECT_DIR}/tmpl/cluster/external-dns-secret.sops.yaml" \
             > "${PROJECT_DIR}/cluster/apps/networking/external-dns/secret.sops.yaml"
+        envsubst < "${PROJECT_DIR}/tmpl/cluster/external-dns-secret.sops.yaml" \
+            > "${PROJECT_DIR}/cluster/config/external-dns-secrets.sops.yaml"
+        envsubst < "${PROJECT_DIR}/tmpl/cluster/cert-manager-secret.sops.yaml" \
+            > "${PROJECT_DIR}/cluster/config/cert-manager-secrets.sops.yaml"
         # encrypt cluster secrets
         sops --encrypt --in-place "${PROJECT_DIR}/cluster/config/cluster-secrets.sops.yaml"
+        sops --encrypt --in-place "${PROJECT_DIR}/cluster/config/external-dns-secrets.sops.yaml"
+        sops --encrypt --in-place "${PROJECT_DIR}/cluster/config/cert-manager-secrets.sops.yaml"
         sops --encrypt --in-place "${PROJECT_DIR}/cluster/core/cert-manager/secret.sops.yaml"
         sops --encrypt --in-place "${PROJECT_DIR}/cluster/apps/networking/external-dns/secret.sops.yaml"
         # generate terraform secrets
