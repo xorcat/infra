@@ -26,6 +26,7 @@ spec:
     prometheus:
       ingress:
         enabled: true
+        pathType: ImplementationSpecific
         ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -33,18 +34,15 @@ spec:
           traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
         hosts:
           - host: "monitoring.${SECRET_INTERNAL_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
         tls:
           - hosts:
               - "monitoring.${SECRET_INTERNAL_DOMAIN}"
             secretName: "prometheus-tls"
       prometheusSpec:
         podMonitorNamespaceSelector: {}
-        podMonitorSelector:
-          matchLabels:
-            app.kubernetes.io/component: monitoring
+        # podMonitorSelector:
+        #   matchLabels:
+        #     app.kubernetes.io/component: monitoring
         resources:
           requests:
             cpu: 200m
