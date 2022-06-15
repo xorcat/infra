@@ -23,6 +23,22 @@ spec:
   values:
     alertmanager:
       enabled: false
+    grafana:
+      enabled: true
+      ingress:
+        enabled: true
+        pathType: ImplementationSpecific
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+        hosts:
+          - "mon.${SECRET_INTERNAL_DOMAIN}"
+        tls:
+          - hosts:
+              - "mon.${SECRET_INTERNAL_DOMAIN}"
+            secretName: "grafana-tls"
     prometheus:
       ingress:
         enabled: true
@@ -33,10 +49,10 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
         hosts:
-          - "monitoring.${SECRET_INTERNAL_DOMAIN}"
+          - "prom.mon.${SECRET_INTERNAL_DOMAIN}"
         tls:
           - hosts:
-              - "monitoring.${SECRET_INTERNAL_DOMAIN}"
+              - "prom.mon.${SECRET_INTERNAL_DOMAIN}"
             secretName: "prometheus-tls"
       prometheusSpec:
         podMonitorNamespaceSelector: {}
