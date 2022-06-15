@@ -33,7 +33,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
         hosts:
-          - host: "monitoring.${SECRET_INTERNAL_DOMAIN}"
+          - "monitoring.${SECRET_INTERNAL_DOMAIN}"
         tls:
           - hosts:
               - "monitoring.${SECRET_INTERNAL_DOMAIN}"
