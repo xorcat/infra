@@ -20,7 +20,13 @@ spec:
     domain: ${SECRET_DOMAIN}
     fallthrough:
       enabled: true
+      zones:
+        - ${SECRET_DOMAIN}
     ttl: 1
+    zoneFile:
+      filename: ${SECRET_DOMAIN}.db
+      contents: |
+        kube.${SECRET_INTERNAL_DOMAIN}. IN A  ${KUBE_VIP_ADDR}
     service:
       type: LoadBalancer
       port: 53
