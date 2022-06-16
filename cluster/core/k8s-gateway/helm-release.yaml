@@ -26,7 +26,11 @@ spec:
     zoneFile:
       filename: ${SECRET_DOMAIN}.db
       contents: |
-        kube.${SECRET_INTERNAL_DOMAIN}. IN A  ${KUBE_VIP_ADDR}
+        ${SECRET_INTERNAL_DOMAIN}.          IN SOA  k8sgw.${SECRET_INTERNAL_DOMAIN}. security.${SECRET_DOMAIN}. 1 86400 7200 4000000 11200
+        kube.${SECRET_INTERNAL_DOMAIN}.     IN A    ${KUBE_VIP_ADDR}
+        k8sgw.${SECRET_INTERNAL_DOMAIN}.    IN A    ${METALLB_K8S_GATEWAY_ADDR}
+        nas.${SECRET_INTERNAL_DOMAIN}.      IN A    10.1.1.15
+        printer.${SECRET_INTERNAL_DOMAIN}.  IN A    10.1.1.108
     service:
       type: LoadBalancer
       port: 53
