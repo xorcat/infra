@@ -4,5 +4,3 @@ kind: Kustomization
 resources:
   - error-pages
   - external-dns
-  - k8s-gateway
-  - traefik
