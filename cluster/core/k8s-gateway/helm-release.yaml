@@ -30,6 +30,7 @@ spec:
         kube.${SECRET_INTERNAL_DOMAIN}.     IN A    ${KUBE_VIP_ADDR}
         k8sgw.${SECRET_INTERNAL_DOMAIN}.    IN A    ${METALLB_K8S_GATEWAY_ADDR}
         nas.${SECRET_INTERNAL_DOMAIN}.      IN A    10.1.1.15
+        home.${SECRET_INTERNAL_DOMAIN}.     IN A    10.1.1.104
         printer.${SECRET_INTERNAL_DOMAIN}.  IN A    10.1.1.108
     service:
       type: LoadBalancer
