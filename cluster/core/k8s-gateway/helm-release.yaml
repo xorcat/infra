@@ -23,7 +23,7 @@ spec:
       enabled: true
       zones:
         - ${SECRET_DOMAIN}
-    ttl: 1
+    ttl: 60
     zoneFile:
       filename: ${SECRET_DOMAIN}.db
       contents: |
