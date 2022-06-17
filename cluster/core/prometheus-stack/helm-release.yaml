@@ -21,10 +21,16 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
+    kubeEtcd:
+      endpoints:
+        - 10.1.1.16
+        - 10.1.1.18
+        - 10.1.1.20
     alertmanager:
       enabled: false
     grafana:
       enabled: true
+      adminPassword: "${SECRET_GRAFANA_PASS}"
       ingress:
         enabled: true
         pathType: ImplementationSpecific
@@ -55,14 +61,26 @@ spec:
               - "prom.mon.${SECRET_INTERNAL_DOMAIN}"
             secretName: "prometheus-tls"
       prometheusSpec:
+        replicas: 2
+        podAntiAffinity: "soft"
         podMonitorNamespaceSelector: {}
+    ## Using PersistentVolumeClaim
+    ##
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: nfs-client
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 50Gi
         # podMonitorSelector:
         #   matchLabels:
         #     app.kubernetes.io/component: monitoring
         resources:
           requests:
-            cpu: 200m
-            memory: 1000Mi
+            cpu: 400m
+            memory: 1500Mi
           limits:
-            memory: 2000Mi
-        retention: 24h
+            memory: 3000Mi
+        retention: 20d
