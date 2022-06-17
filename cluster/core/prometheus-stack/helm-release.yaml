@@ -22,6 +22,7 @@ spec:
     crds: CreateReplace
   values:
     kubeEtcd:
+      enabled: true
       endpoints:
         - 10.1.1.16
         - 10.1.1.18
