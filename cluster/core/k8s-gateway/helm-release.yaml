@@ -18,6 +18,9 @@ spec:
       reconcileStrategy: Revision
   values:
     fullnameOverride: k8s-gateway
+    watchedResources:
+      - Ingress
+      - Service
     domain: ${SECRET_DOMAIN}
     fallthrough:
       enabled: true
