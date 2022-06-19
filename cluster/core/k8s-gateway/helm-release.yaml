@@ -8,11 +8,11 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: ./charts/k8s-gateway
+      chart: k8s-gateway
       version: 1.1.10
       sourceRef:
-        kind: GitRepository
-        name: my-k8s-gateway
+        kind: HelmRepository
+        name: k8s-gateway
         namespace: flux-system
       interval: 5m
       reconcileStrategy: Revision
