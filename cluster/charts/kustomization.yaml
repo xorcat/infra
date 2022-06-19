@@ -9,7 +9,7 @@ resources:
   - jetstack.yaml
   - k8s-at-home.yaml
   - k8s-gateway.yaml
-  - my-k8s-gateway.yaml
+  # - my-k8s-gateway.yaml
   - metallb.yaml
   - metrics-server.yaml
   - nfs-provisioner.yaml
