@@ -40,7 +40,7 @@ spec:
       type: LoadBalancer
       port: 53
       annotations:
-        metallb.universe.tf/loadBalancerIPs: "${METALLB_K8S_GATEWAY_ADDR}, ${METALLB_K8S_GATEWAY_ADDR2}"
+        metallb.universe.tf/loadBalancerIPs: "${METALLB_K8S_GATEWAY_ADDR}"
       externalTrafficPolicy: Local
         # Increase replicaCount and set an anti-affinity if you wish to scale this
     replicaCount: 3
