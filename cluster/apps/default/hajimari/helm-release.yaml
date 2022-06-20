@@ -127,6 +127,10 @@ spec:
         existingClaim: hajimari-config
     podAnnotations:
       configmap.reloader.stakater.com/reload: "hajimari-settings"
+    podSecurityContext:
+      runAsUser: 100
+      runAsGroup: 101
+      fsGroup: 200
     resources:
       requests:
         cpu: 100m
