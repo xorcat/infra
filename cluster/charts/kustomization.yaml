@@ -12,8 +12,9 @@ resources:
   # - my-k8s-gateway.yaml
   - metallb.yaml
   - metrics-server.yaml
-  - nfs-provisioner.yaml
+  # - nfs-provisioner.yaml
   - prometheus.yaml
+  - rook.yaml
   - stakater.yaml
   - traefik.yaml
   - weaveworks-kured.yaml

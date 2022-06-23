@@ -5,8 +5,8 @@ resources:
   - namespaces
   - cert-manager
   - kube-system
+  - rook
   - metallb-system
   - k8s-gateway
   - traefik
-  - nfs-provisioner
   - prometheus-stack

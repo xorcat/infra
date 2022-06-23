@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=/Users/xorcat/tmp/schema/helmrepository-source-v1beta2.json
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: rook
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://charts.rook.io/release
