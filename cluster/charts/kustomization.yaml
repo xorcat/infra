@@ -14,7 +14,7 @@ resources:
   - metrics-server.yaml
   # - nfs-provisioner.yaml
   - prometheus.yaml
-  - rook.yaml
+  # - rook.yaml
   - stakater.yaml
   - traefik.yaml
   - weaveworks-kured.yaml
