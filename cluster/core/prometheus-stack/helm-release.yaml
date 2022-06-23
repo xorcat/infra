@@ -24,9 +24,8 @@ spec:
     kubeEtcd:
       enabled: true
       endpoints:
-        - 10.1.1.16
-        - 10.1.1.18
-        - 10.1.1.20
+        - 10.1.1.240
+        - 10.1.1.242
     alertmanager:
       enabled: false
     grafana:
@@ -70,7 +69,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: nfs-client
+              storageClassName: fast-block
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:
