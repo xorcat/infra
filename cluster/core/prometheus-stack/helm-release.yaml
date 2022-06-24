@@ -25,6 +25,7 @@ spec:
       enabled: true
       endpoints:
         - 10.1.1.240
+        - 10.1.1.241
         - 10.1.1.242
     alertmanager:
       enabled: false
