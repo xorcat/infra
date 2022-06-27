@@ -31,7 +31,7 @@ spec:
       filename: ${SECRET_DOMAIN}.db
       contents: |
         ${SECRET_INTERNAL_DOMAIN}.          3600 IN SOA  k8sgw.${SECRET_INTERNAL_DOMAIN}. security.${SECRET_DOMAIN}. 1 86400 7200 4000000 11200
-        kube.${SECRET_INTERNAL_DOMAIN}.     3600 IN A    ${KUBE_VIP_ADDR}
+        kubeapi.${SECRET_INTERNAL_DOMAIN}.  3600 IN A    ${KUBE_VIP_ADDR}
         k8sgw.${SECRET_INTERNAL_DOMAIN}.    3600 IN A    ${METALLB_K8S_GATEWAY_ADDR}
         nas.${SECRET_INTERNAL_DOMAIN}.      3600 IN A    10.1.1.15
         home.${SECRET_INTERNAL_DOMAIN}.     3600 IN A    10.1.1.104
