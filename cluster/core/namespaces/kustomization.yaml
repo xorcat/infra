@@ -7,5 +7,5 @@ resources:
   - monitoring.yaml
   - networking.yaml
   - nfs-provisioner.yaml
-  - rook-ceph.yaml
+  # - rook-ceph.yaml
   - system-upgrade.yaml
