@@ -5,11 +5,6 @@
 # "rook-ceph" namespace.
 ####################################################################################################
 
-# Namespace where the operator and other rook resources are created
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: rook-ceph # namespace:cluster
 ---
 # TODO: remove this, once https://github.com/rook/rook/issues/10141
 # is resolved.
