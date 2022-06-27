@@ -13,3 +13,16 @@ spec:
   ignore: |
     /*
     !/traefik/crds/
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: traefik-crds
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./traefik/crds
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: traefik-crds

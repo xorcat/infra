@@ -1,13 +1,5 @@
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: traefik-crds
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./traefik/crds
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: traefik-crds
+resources:
+  - crds.yaml
