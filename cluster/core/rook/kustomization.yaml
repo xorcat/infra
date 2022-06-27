@@ -5,6 +5,6 @@ resources:
   - crds.yaml
   - common.yaml
   - operator.yaml
-  - cluster.yaml
-  - storageclass-fast.yaml
-  - storageclass-slow.yaml
+  # - cluster.yaml
+  # - storageclass-fast.yaml
+  # - storageclass-slow.yaml
