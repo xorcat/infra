@@ -9,4 +9,4 @@ resources:
   - metallb-system
   - k8s-gateway
   - traefik
-  # - prometheus-stack
+  - prometheus-stack
