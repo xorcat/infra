@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - namespaces
   # - rook
+  - kube-system
   - cert-manager
   - metallb-system
   - k8s-gateway
