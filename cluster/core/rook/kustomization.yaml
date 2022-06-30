@@ -3,8 +3,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - crds.yaml
+  - monitoringrbac.yaml
   - common.yaml
   - operator.yaml
-  # - cluster.yaml
-  # - storageclass-fast.yaml
-  # - storageclass-slow.yaml
+  - cluster.yaml
+  - storageclass-fast.yaml
+  - storageclass-slow.yaml
+  - storageclass-slowfs.yaml
+  - mediafs-ec.yaml

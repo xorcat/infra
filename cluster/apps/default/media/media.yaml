@@ -2,18 +2,18 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: timemachine
+  name: media
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: timemachine-udp
-  namespace: timemachine
+  name: media-udp
+  namespace: media
   labels:
-    app: timemachine
+    app: media
   annotations:
-    coredns.io/hostname: "tm.${SECRET_INTERNAL_DOMAIN}"
-    metallb.universe.tf/allow-shared-ip: "timemachine-share-service"
+    coredns.io/hostname: "media.${SECRET_INTERNAL_DOMAIN}"
+    metallb.universe.tf/allow-shared-ip: "media-share-service"
 spec:
   ports:
     - port: 137
@@ -24,18 +24,18 @@ spec:
       protocol: UDP
   type: LoadBalancer
   selector:
-    app: timemachine
+    app: media
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: timemachine-tcp
-  namespace: timemachine
+  name: media-tcp
+  namespace: media
   labels:
-    app: timemachine
+    app: media
   annotations:
-    coredns.io/hostname: "tm.${SECRET_INTERNAL_DOMAIN}"
-    metallb.universe.tf/allow-shared-ip: "timemachine-share-service"
+    coredns.io/hostname: "media.${SECRET_INTERNAL_DOMAIN}"
+    metallb.universe.tf/allow-shared-ip: "media-share-service"
 spec:
   ports:
     - port: 139
@@ -44,28 +44,30 @@ spec:
       name: tcp445
   type: LoadBalancer
   selector:
-    app: timemachine
+    app: media
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: timemachine
-  namespace: timemachine
+  name: media
+  namespace: media
 spec:
-  serviceName: timemachine-udp
+  serviceName: media-udp
   replicas: 1 # Never go > 1!
   selector:
     matchLabels:
-      app: timemachine
+      app: media
   template:
     metadata:
       labels:
-        app: timemachine
+        app: media
     spec:
       hostNetwork: false # otherwise the auto-discovery does not work
       containers:
-        - name: timemachine
+        - name: media
           image: mbentley/timemachine:smb
+          securityContext:
+            privileged: true
           ports:
             - containerPort: 137
               name: udp137
@@ -78,7 +80,7 @@ spec:
             - containerPort: 445
               name: tcp445
           volumeMounts:
-            - name: tm
+            - name: media
               mountPath: /opt/timemachine
             - name: var-lib-samba
               mountPath: /var/lib/samba
@@ -95,22 +97,22 @@ spec:
               value: "false"
             - name: DEBUG_LEVEL
               value: "1"
-            - name: MIMIC_MODEL
-              value: "TimeCapsule8,119"
+            # - name: MIMIC_MODEL
+            #   value: "TimeCapsule8,119"
             - name: EXTERNAL_CONF
               value: ""
             - name: HIDE_SHARES
               value: "no"
             - name: TM_USERNAME
-              value: "timemachine"
+              value: "x"
             - name: TM_GROUPNAME
-              value: "timemachine"
+              value: "x"
             - name: TM_UID
               value: "1000"
             - name: TM_GID
               value: "1000"
             - name: PASSWORD
-              value: "${SECRET_TM_PASS}"
+              value: "${SECRET_MEDIA_PASS}"
             - name: SET_PERMISSIONS
               value: "false"
             - name: SHARE_NAME
@@ -124,7 +126,7 @@ spec:
             - name: SMB_PORT
               value: "445"
             - name: SMB_VFS_OBJECTS
-              value: "acl_xattr fruit streams_xattr"
+              value: "acl_xattr streams_xattr"
             - name: VOLUME_SIZE_LIMIT
               value: "0"
             - name: WORKGROUP
@@ -138,10 +140,10 @@ spec:
           emptyDir: {}
   volumeClaimTemplates:
     - metadata:
-        name: tm
+        name: media
       spec:
-        storageClassName: slow-block
-        accessModes: ["ReadWriteOnce"]
+        storageClassName: media-fs
+        accessModes: ["ReadWriteMany"]
         resources:
           requests:
-            storage: 4Ti
+            storage: 6Ti

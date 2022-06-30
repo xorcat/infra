@@ -31,6 +31,7 @@ spec:
       enabled: false
     grafana:
       enabled: true
+      defaultDashboardsTimezone: Australia/Brisbane
       adminPassword: "${SECRET_GRAFANA_PASS}"
       ingress:
         enabled: true
@@ -65,8 +66,8 @@ spec:
         replicas: 2
         podAntiAffinity: "soft"
         podMonitorNamespaceSelector: {}
-    ## Using PersistentVolumeClaim
-    ##
+        ## Using PersistentVolumeClaim
+        ##
         storageSpec:
           volumeClaimTemplate:
             spec:
