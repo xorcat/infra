@@ -2,5 +2,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - webhooks
-  - monitoring
+  - source.yaml
+  - mon-config.yaml

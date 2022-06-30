@@ -50,6 +50,14 @@ spec:
             gnetId: 2842
             revision: 14
             datasource: Prometheus
+          ceph-osd:
+            gnetId: 5336
+            revision: 5
+            datasource: Prometheus
+          ceph-pools:
+            gnetId: 5342
+            revision: 5
+            datasource: Prometheus
       ingress:
         enabled: true
         pathType: ImplementationSpecific
