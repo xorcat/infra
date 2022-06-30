@@ -25,7 +25,7 @@ spec:
   values:
     env:
       TZ: Australia/Brisbane
-      UP_PROMETHEUS_DISABLE: true
+      UP_PROMETHEUS_DISABLE: false
       UP_INFLUXDB_DISABLE: false
       UP_INFLUXDB_URL: http://unifi-poller-influxdb.default:8086
       UP_INFLUXDB_DB: unifi
