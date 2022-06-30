@@ -298,7 +298,7 @@ spec:
       osd:
         disabled: false
         probe:
-          initialDelaySeconds: 60
+          initialDelaySeconds: 300
           timeoutSeconds: 10
           failureThreshold: 10
     # Change pod startup probe timing or threshold values. Works for all mon,mgr,osd daemons.
@@ -318,6 +318,6 @@ spec:
       osd:
         disabled: false
         probe:
-          initialDelaySeconds: 60
+          initialDelaySeconds: 300
           timeoutSeconds: 10
           failureThreshold: 10
