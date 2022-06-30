@@ -33,6 +33,23 @@ spec:
       enabled: true
       defaultDashboardsTimezone: Australia/Brisbane
       adminPassword: "${SECRET_GRAFANA_PASS}"
+      dashboardProviders:
+        dashboardproviders.yaml:
+          apiVersion: 1
+          providers:
+            - name: "default"
+              orgId: 1
+              folder: ""
+              type: file
+              editable: true
+              options:
+                path: /var/lib/grafana/dashboards/default
+      dashboards:
+        default:
+          ceph-cluster:
+            gnetId: 2842
+            revision: 14
+            datasource: Prometheus
       ingress:
         enabled: true
         pathType: ImplementationSpecific
