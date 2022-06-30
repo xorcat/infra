@@ -101,9 +101,9 @@ spec:
               resources:
                 requests:
                   storage: 50Gi
-        # podMonitorSelector:
-        #   matchLabels:
-        #     app.kubernetes.io/component: monitoring
+        podMonitorSelector:
+          matchLabels:
+            app.kubernetes.io/component: monitoring
         resources:
           requests:
             cpu: 400m
