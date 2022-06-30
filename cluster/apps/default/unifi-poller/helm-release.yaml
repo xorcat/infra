@@ -27,9 +27,11 @@ spec:
       TZ: Australia/Brisbane
       UP_PROMETHEUS_DISABLE: true
       UP_INFLUXDB_DISABLE: false
+      UP_INFLUXDB_URL: http://unifi-poller-influxdb.default:8086
       UP_INFLUXDB_DB: unifi
       UP_INFLUXDB_USER: admin
       UP_INFLUXDB_PASS: "${SECRET_UNIFI_INFLUX_PASS}"
+      UP_LOKI_URL: http://loki-stack.monitoring:3100
       UP_UNIFI_DEFAULT_URL: "https://10.1.1.1"
       UP_UNIFI_DEFAULT_USER: "unifipoller"
       UP_UNIFI_DEFAULT_PASS: "${SECRET_UNIFI_READONLY_PASS}"
