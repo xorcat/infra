@@ -10,3 +10,4 @@ resources:
   - k8s-gateway
   - traefik
   - prometheus-stack
+  - loki-stack
