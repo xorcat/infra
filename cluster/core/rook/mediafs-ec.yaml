@@ -12,7 +12,7 @@ metadata:
 spec:
   # The metadata pool spec
   metadataPool:
-    deviceClass: ssd
+    # deviceClass: ssd
     replicated:
       # You need at least three OSDs on different nodes for this config to work
       size: 3
@@ -21,7 +21,7 @@ spec:
     # For erasure coded pools, we have to create a replicated pool as the default
     # data pool and an erasure-coded pool as a secondary pool.
     - name: replicated
-      deviceClass: hdd
+      # deviceClass: hdd
       replicated:
         size: 3
     # You need at least three `bluestore` OSDs on different nodes for this config to work
@@ -32,7 +32,7 @@ spec:
       # Inline compression mode for the data pool
       parameters:
         compression_mode: none
-      deviceClass: hdd
+      # deviceClass: hdd
   # Whether to preserve filesystem after CephFilesystem CRD deletion
   preserveFilesystemOnDelete: true
   # The metadata service (mds) configuration

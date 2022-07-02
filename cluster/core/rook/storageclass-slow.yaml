@@ -9,17 +9,17 @@
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
-  name: replicated-metadata-pool-slow-block
+  name: replicated-metadata-pool-block
   namespace: rook-ceph # namespace:cluster
 spec:
   replicated:
     size: 2
-  deviceClass: hdd
+  # deviceClass: hdd
 ---
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
-  name: ec-slow-pool
+  name: ec-pool
   namespace: rook-ceph # namespace:cluster
 spec:
   # Make sure you have enough nodes and OSDs running bluestore to support the replica size or erasure code chunks.
@@ -27,12 +27,12 @@ spec:
   erasureCoded:
     dataChunks: 2
     codingChunks: 1
-  deviceClass: hdd
+  # deviceClass: hdd
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: slow-block
+  name: block
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
 # Change "rook-ceph" provisioner prefix to match the operator namespace if needed
@@ -47,8 +47,8 @@ parameters:
   # You need to specify the replicated pool here in the `pool` parameter, it is
   # used for the metadata of the images.
   # The erasure coded pool must be set as the `dataPool` parameter below.
-  dataPool: ec-slow-pool
-  pool: replicated-metadata-pool-slow-block
+  dataPool: ec-pool
+  pool: replicated-metadata-pool-block
 
   # (optional) mapOptions is a comma-separated list of map options.
   # For krbd options refer

@@ -1,0 +1,13 @@
+# ###############################################################################################################
+# The `rook-ceph-osd-env-override` ConfigMap is a development feature
+# that allows to inject arbitrary environment variables to OSD-related
+# containers created by the operator.
+# ###############################################################################################################
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rook-ceph-osd-env-override
+  namespace: rook-ceph
+data:
+  LVM_SYSTEM_DIR: /tmp

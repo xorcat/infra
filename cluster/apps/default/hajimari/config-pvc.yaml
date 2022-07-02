@@ -7,7 +7,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: slow-block
   resources:
     requests:
       storage: 128Mi

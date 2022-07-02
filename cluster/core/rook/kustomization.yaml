@@ -4,10 +4,11 @@ kind: Kustomization
 resources:
   - crds.yaml
   - monitoringrbac.yaml
+  - osd-override.yaml
   - common.yaml
   - operator.yaml
   - cluster.yaml
-  - storageclass-fast.yaml
+  # - storageclass-fast.yaml
+  - mediafs-ec.yaml
   - storageclass-slow.yaml
   - storageclass-slowfs.yaml
-  - mediafs-ec.yaml
