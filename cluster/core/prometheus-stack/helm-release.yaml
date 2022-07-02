@@ -96,7 +96,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: fast-block
+              storageClassName: block
               accessModes: ["ReadWriteOnce"]
               resources:
                 requests:

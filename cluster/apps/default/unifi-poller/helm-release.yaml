@@ -59,7 +59,7 @@ spec:
       persistence:
         # -- Enable persistence to store in a PV so data survives pod restarts.
         enabled: true
-        storageClass: fast-block
+        storageClass: block
         size: 50Gi
     metrics:
       enabled: true
