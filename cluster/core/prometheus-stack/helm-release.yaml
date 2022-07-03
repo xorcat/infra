@@ -58,6 +58,46 @@ spec:
             gnetId: 5342
             revision: 5
             datasource: Prometheus
+          unifi-dpi:
+            gnetId: 10419
+            revision: 3
+            datasource: UnifiInflux
+          unifi-sites:
+            gnetId: 10414
+            revision: 4
+            datasource: UnifiInflux
+          unifi-switch:
+            gnetId: 10417
+            revision: 6
+            datasource: UnifiInflux
+          unifi-firewall:
+            gnetId: 10416
+            revision: 6
+            datasource: UnifiInflux
+          unifi-clients:
+            gnetId: 10418
+            revision: 6
+            datasource: UnifiInflux
+          unifi-wifi:
+            gnetId: 10415
+            revision: 5
+            datasource: UnifiInflux
+      plugins:
+        - grafana-piechart-panel
+        - grafana-clock-panel
+        - natel-discrete-panel
+      datasources:
+        datasources.yaml:
+          apiVersion: 1
+          datasources:
+            - name: UnifiInflux
+              type: influxdb
+              url: http://unifi-poller-influxdb.default:8086
+              access: proxy
+              user: admin
+              database: unifi
+              secureJsonData:
+                password: "${SECRET_UNIFI_INFLUX_PASS}"
       ingress:
         enabled: true
         pathType: ImplementationSpecific
