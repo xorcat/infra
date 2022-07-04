@@ -265,12 +265,12 @@ spec:
           #     osdsPerDevice: "0"
           #     deviceClass: "ssd"
           #     metadataDevice: ""
+          # - name: "sdc"
+          #   config:
+          #     osdsPerDevice: "2"
+          #     deviceClass: "ssd"
+          #     metadataDevice: ""
           - name: "sdc"
-            config:
-              osdsPerDevice: "2"
-              deviceClass: "ssd"
-              metadataDevice: ""
-          - name: "sdd"
             config:
               metadataDevice: "sdb"
               osdsPerDevice: "1"
