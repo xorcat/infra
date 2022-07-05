@@ -21,6 +21,12 @@ spec:
   upgrade:
     remediation:
       retries: 3
+  prometheus:
+    enabled: true
+    servicemonitor:
+      enabled: true
+      labels:
+        release: prometheus-stack
   values:
     installCRDs: false
     webhook:
