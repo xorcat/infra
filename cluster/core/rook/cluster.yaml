@@ -63,8 +63,10 @@ spec:
       - name: pg_autoscaler
         enabled: true
   # enable the ceph dashboard for viewing cluster status
-  # dashboard:
-  #  enabled: true
+  dashboard:
+    port: 8888
+    enabled: true
+    ssl: false
   # serve the dashboard under a subpath (useful when you are accessing the dashboard via a reverse proxy)
   # urlPrefix: /ceph-dashboard
   # serve the dashboard at the given port.
@@ -244,12 +246,12 @@ spec:
           #     osdsPerDevice: "0"
           #     deviceClass: "ssd"
           #     metadataDevice: ""
-          - name: "sda"
+          - name: "sdb"
             config:
               osdsPerDevice: "2"
               deviceClass: "ssd"
               metadataDevice: ""
-          - name: "sdb"
+          - name: "sda"
             config:
               deviceClass: "hdd"
               metadataDevice: "nvme0n1"
@@ -260,21 +262,21 @@ spec:
               metadataDevice: ""
       - name: "w08-mini"
         devices:
-          # - name: "sdb"
-          #   config:
-          #     osdsPerDevice: "0"
-          #     deviceClass: "ssd"
-          #     metadataDevice: ""
+          - name: "sdb"
+            config:
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
+              metadataDevice: ""
           # - name: "sdc"
           #   config:
           #     osdsPerDevice: "2"
           #     deviceClass: "ssd"
           #     metadataDevice: ""
-          - name: "sdc"
-            config:
-              metadataDevice: "sdb"
-              osdsPerDevice: "1"
-              deviceClass: "hdd"
+          # - name: "sdc"
+          #   config:
+          #     metadataDevice: "sdb"
+          #     osdsPerDevice: "1"
+          #     deviceClass: "hdd"
       - name: "w09-desk"
         devices:
           - name: "sdb"
@@ -297,6 +299,23 @@ spec:
           #     metadataDevice: ""
           #     deviceClass: "ssd"
           #     osdsPerDevice: "0"
+      - name: "w10-nuca"
+        devices:
+          # - name: "sdb"
+          #   config:
+          #     osdsPerDevice: "0"
+          #     deviceClass: "ssd"
+          #     metadataDevice: ""
+          # - name: "sdc"
+          #   config:
+          #     osdsPerDevice: "2"
+          #     deviceClass: "ssd"
+          #     metadataDevice: ""
+          - name: "sdc"
+            config:
+              metadataDevice: "sdb"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
     onlyApplyOSDPlacement: false
   # The section for configuring management of daemon disruptions during upgrade or fencing.
