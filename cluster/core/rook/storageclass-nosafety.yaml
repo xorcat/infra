@@ -1,16 +1,15 @@
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
-  name: repl-fast-pool
+  name: no-repl-pool
   namespace: rook-ceph # namespace:cluster
 spec:
-  deviceClass: ssd
   failureDomain: host
   replicated:
-    size: 2
+    size: 1
     # Disallow setting pool with replica 1, this could lead to data loss without recovery.
     # Make sure you're *ABSOLUTELY CERTAIN* that is what you want
-    requireSafeReplicaSize: true
+    requireSafeReplicaSize: false
     # gives a hint (%) to Ceph in terms of expected consumption of the total cluster capacity of a given pool
     # for more info: https://docs.ceph.com/docs/master/rados/operations/placement-groups/#specifying-expected-pool-size
     #targetSizeRatio: .5
@@ -18,7 +17,7 @@ spec:
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: fast-block
+  name: single-block
 # Change "rook-ceph" provisioner prefix to match the operator namespace if needed
 provisioner: rook-ceph.rbd.csi.ceph.com
 parameters:
@@ -32,7 +31,7 @@ parameters:
   # used for the metadata of the images.
   # The erasure coded pool must be set as the `dataPool` parameter below.
   #dataPool: ec-data-pool
-  pool: repl-fast-pool
+  pool: no-repl-pool
 
   # (optional) mapOptions is a comma-separated list of map options.
   # For krbd options refer
