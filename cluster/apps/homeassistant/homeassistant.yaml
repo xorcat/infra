@@ -7,6 +7,18 @@ metadata:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  name: homeassistant-db
+  namespace: homeassistant
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
   name: homeassistant-config
   namespace: homeassistant
 spec:
@@ -37,12 +49,25 @@ spec:
         - name: ha-config
           persistentVolumeClaim:
             claimName: homeassistant-config
+        - name: ha-db
+          persistentVolumeClaim:
+            claimName: homeassistant-db
       containers:
         - image: ghcr.io/home-assistant/home-assistant:2022.7.2
           name: homeassistant
           volumeMounts:
             - mountPath: "/config"
               name: ha-config
+        - image: postgres:14.4
+          name: postgres
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: ha-db
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            - name: POSTGRES_PASSWORD
+              value: "${SECRET_HASSDB_PASSWORD}"
 ---
 apiVersion: v1
 kind: Service
