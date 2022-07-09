@@ -5,7 +5,6 @@
   "dependencyDashboardTitle": "Renovate Dashboard",
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
-  "schedule": ["before 11pm"],
   "pre-commit": {
     "enabled": true
   },
@@ -18,9 +17,9 @@
   "kubernetes": {
     "fileMatch": [
       "cluster/.+\\.ya?ml$",
-      "provision/ansible/.+\\.ya?ml.j2$"
     ]
   },
+  "reviewersFromCodeOwners": true
   "regexManagers": [
     {
       "description": "Process CRD dependencies",
