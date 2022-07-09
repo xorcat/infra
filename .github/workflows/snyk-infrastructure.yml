@@ -9,17 +9,17 @@
 #
 # For more examples, including how to limit scans to only high-severity issues
 # and fail PR checks, see https://github.com/snyk/actions/
-
+---
 name: Snyk Infrastructure as Code
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
+    branches: ["main"]
   schedule:
-    - cron: '39 7 * * 0'
+    - cron: "39 7 * * 0"
 
 permissions:
   contents: read
@@ -30,6 +30,9 @@ jobs:
       contents: read # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        files: ["**/*.yaml"]
     steps:
       - uses: actions/checkout@v3
       - name: Run Snyk to check configuration files for security issues
@@ -46,7 +49,7 @@ jobs:
           # Add the path to the configuration file that you would like to test.
           # For example `deployment.yaml` for a Kubernetes deployment manifest
           # or `main.tf` for a Terraform configuration file
-          file: **.yaml
+          file: ${{ matrix.files }}
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
