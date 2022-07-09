@@ -4,7 +4,7 @@
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "conflicted",
+  "rebaseWhen": "auto",
   "pre-commit": {
     "enabled": true
   },
@@ -20,6 +20,10 @@
     ]
   },
   "reviewersFromCodeOwners": true,
+  "assignAutomerge": true,
+  "platformAutomerge": true,
+  "automergeType": "pr",
+  "automerge": true,
   "regexManagers": [
     {
       "description": "Process CRD dependencies",
