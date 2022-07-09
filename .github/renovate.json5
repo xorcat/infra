@@ -20,6 +20,8 @@
     ]
   },
   "reviewersFromCodeOwners": true,
+  "assignAutomerge": true,
+  "automerge": true,
   "regexManagers": [
     {
       "description": "Process CRD dependencies",
