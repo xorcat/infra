@@ -21,6 +21,8 @@
   },
   "reviewersFromCodeOwners": true,
   "assignAutomerge": true,
+  "platformAutomerge": true,
+  "automergeType": "pr",
   "automerge": true,
   "regexManagers": [
     {
