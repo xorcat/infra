@@ -1,0 +1,80 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homeassistant-config
+  namespace: homeassistant
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: homeassistant
+  name: homeassistant
+  namespace: homeassistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassistant
+  template:
+    metadata:
+      labels:
+        app: homeassistant
+    spec:
+      volumes:
+        - name: ha-config
+          persistentVolumeClaim:
+            claimName: homeassistant-config
+      containers:
+        - image: ghcr.io/home-assistant/home-assistant:2022.7.2
+          name: homeassistant
+          volumeMounts:
+            - mountPath: "/config"
+              name: ha-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ha-service
+  namespace: homeassistant
+spec:
+  selector:
+    app: homeassistant
+  ports:
+    - protocol: TCP
+      port: 8123
+      name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ha-ingress
+  namespace: homeassistant
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "hass.${SECRET_INTERNAL_DOMAIN}"
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: ha-service
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - "hass.${SECRET_INTERNAL_DOMAIN}"
+      secretName: ha-tls
