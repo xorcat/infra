@@ -1,4 +1,8 @@
-# Template for deploying k3s backed by Flux
+# (not actually a) Template for deploying k3s backed by Flux
+
+_Note: while this repo started out as a template that I instantiated, this is now my life cluster at home._
+
+_Basically none of the info in this readme can be trusted any longer, I need to get around to updating it and cleaning up the repo a bit._
 
 Highly opinionated template for deploying a single [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
