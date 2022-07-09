@@ -19,7 +19,7 @@
       "cluster/.+\\.ya?ml$",
     ]
   },
-  "reviewersFromCodeOwners": true
+  "reviewersFromCodeOwners": true,
   "regexManagers": [
     {
       "description": "Process CRD dependencies",
