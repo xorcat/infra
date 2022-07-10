@@ -1,16 +1,9 @@
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: GitRepository
+kind: HelmRepository
 metadata:
   name: kube-plex
   namespace: flux-system
 spec:
   interval: 1h
-  url: https://github.com/xorcat/kube-plex
-  ref:
-    branch: master
-  ignore: |
-    # exclude all
-    /*
-    # include charts dir
-    !/charts/
+  url: https://ressu.github.io/kube-plex

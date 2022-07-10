@@ -8,10 +8,10 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: ./charts/kube-plex
-      version: 0.3.0
+      chart: kube-plex
+      version: 0.3.2
       sourceRef:
-        kind: GitRepository
+        kind: HelmRepository
         name: kube-plex
         namespace: flux-system
       interval: 5m
