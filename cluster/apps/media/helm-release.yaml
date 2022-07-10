@@ -54,6 +54,7 @@ spec:
           secretName: "plex-pub-tls"
     persistence:
       transcode:
+        enabled: true
         storageClass: media-fs
         size: 50Gi
       data:
