@@ -45,7 +45,7 @@ spec:
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
         external-dns/is-public: "true"
-        external-dns.alpha.kubernetes.io/target: "plex.${SECRET_DOMAIN}"
+        external-dns.alpha.kubernetes.io/target: "home.${SECRET_DOMAIN}"
       hosts:
         - "plex.${SECRET_DOMAIN}"
       tls:
