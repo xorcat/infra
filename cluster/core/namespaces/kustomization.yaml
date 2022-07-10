@@ -7,5 +7,6 @@ resources:
   - monitoring.yaml
   - networking.yaml
   - nfs-provisioner.yaml
+  - plex.yaml
   - rook-ceph.yaml
   - system-upgrade.yaml
