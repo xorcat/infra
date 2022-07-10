@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: ./charts/kube-plex
-      version: 0.2.9
+      version: 0.3.0
       sourceRef:
         kind: GitRepository
         name: kube-plex
