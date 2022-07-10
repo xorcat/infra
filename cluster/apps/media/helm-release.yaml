@@ -28,7 +28,7 @@ spec:
       tag: 1.27.2.5929-a806c5905
     kubePlex:
       image:
-        repository: quay.io/munnerz/kube-plex
+        repository: ghcr.io/ressu/kube-plex
         tag: latest
 
     # Override this with the plex claim token from plex.tv/claim
