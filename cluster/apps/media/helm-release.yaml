@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: plex
+  namespace: plex
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./charts/kube-plex
+      version: 0.2.7
+      sourceRef:
+        kind: GitRepository
+        name: kube-plex
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    image:
+      repository: plexinc/pms-docker
+      tag: 1.27.2.5929-a806c5905
+    kubePlex:
+      image:
+        repository: quay.io/munnerz/kube-plex
+        tag: latest
+
+    # Override this with the plex claim token from plex.tv/claim
+    claimToken: ""
+
+    # Set the timezone of the plex server
+    timezone: Australia/Brisbane
+
+    ingress:
+      enabled: true
+      ingressClassName: "traefik"
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+      hosts:
+        - "plex.${SECRET_INTERNAL_DOMAIN}"
+      tls:
+        - hosts:
+            - "plex.${SECRET_INTERNAL_DOMAIN}"
+          secretName: "plex-tls"
+    persistence:
+      transcode:
+        storageClass: media-fs
+        size: 50Gi
+      data:
+        claimName: media-media-0
+      config:
+        storageClass: media-fs
+        size: 50Gi
