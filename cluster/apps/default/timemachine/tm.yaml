@@ -140,6 +140,7 @@ spec:
     - metadata:
         name: tm
       spec:
+        storageClassName: "slow-block"
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
