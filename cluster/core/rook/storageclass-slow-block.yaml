@@ -1,25 +1,30 @@
+---
+#################################################################################################################
+# Create a storage class with a data pool that uses erasure coding for a production environment.
+# A metadata pool is created with replication enabled. A minimum of 3 nodes with OSDs are required in this
+# example since the default failureDomain is host.
+#  kubectl create -f storageclass-ec.yaml
+#################################################################################################################
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
-  name: no-repl-pool
+  name: slow-repl-pool
   namespace: rook-ceph # namespace:cluster
 spec:
-  failureDomain: host
+  # Make sure you have enough nodes and OSDs running bluestore to support the replica size or erasure code chunks.
+  # For the below settings, you need at least 3 OSDs on different nodes (because the `failureDomain` is `host` by default).
+  deviceClass: hdd
   replicated:
     size: 2
-    # Disallow setting pool with replica 1, this could lead to data loss without recovery.
-    # Make sure you're *ABSOLUTELY CERTAIN* that is what you want
-    requireSafeReplicaSize: true
-    # gives a hint (%) to Ceph in terms of expected consumption of the total cluster capacity of a given pool
-    # for more info: https://docs.ceph.com/docs/master/rados/operations/placement-groups/#specifying-expected-pool-size
-    #targetSizeRatio: .5
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: single-block
+  name: slow-block
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
 # Change "rook-ceph" provisioner prefix to match the operator namespace if needed
-provisioner: rook-ceph.rbd.csi.ceph.com
+provisioner: rook-ceph.rbd.csi.ceph.com # driver:namespace:operator
 parameters:
   # clusterID is the namespace where the rook cluster is running
   # If you change this namespace, also change the namespace below where the secret namespaces are defined
@@ -30,8 +35,8 @@ parameters:
   # You need to specify the replicated pool here in the `pool` parameter, it is
   # used for the metadata of the images.
   # The erasure coded pool must be set as the `dataPool` parameter below.
-  #dataPool: ec-data-pool
-  pool: no-repl-pool
+  dataPool: slow-repl-pool
+  pool: replicated-metadata-pool-block
 
   # (optional) mapOptions is a comma-separated list of map options.
   # For krbd options refer
@@ -46,15 +51,6 @@ parameters:
   # For nbd options refer
   # https://docs.ceph.com/docs/master/man/8/rbd-nbd/#options
   # unmapOptions: force
-
-   # (optional) Set it to true to encrypt each volume with encryption keys
-   # from a key management system (KMS)
-   # encrypted: "true"
-
-   # (optional) Use external key management system (KMS) for encryption key by
-   # specifying a unique ID matching a KMS ConfigMap. The ID is only used for
-   # correlation to configmap entry.
-   # encryptionKMSID: <kms-config-id>
 
   # RBD image format. Defaults to "2".
   imageFormat: "2"
@@ -71,13 +67,12 @@ parameters:
   csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
   csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph # namespace:cluster
   # Specify the filesystem type of the volume. If not specified, csi-provisioner
-  # will set default as `ext4`. Note that `xfs` is not recommended due to potential deadlock
-  # in hyperconverged settings where the volume is mounted on the same node as the osds.
+  # will set default as `ext4`.
   csi.storage.k8s.io/fstype: ext4
 # uncomment the following to use rbd-nbd as mounter on supported nodes
 # **IMPORTANT**: CephCSI v3.4.0 onwards a volume healer functionality is added to reattach
 # the PVC to application pod if nodeplugin pod restart.
 # Its still in Alpha support. Therefore, this option is not recommended for production use.
-#mounter: rbd-nbd
+# mounter: rbd-nbd
 allowVolumeExpansion: true
 reclaimPolicy: Delete

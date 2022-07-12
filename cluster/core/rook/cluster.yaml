@@ -241,25 +241,30 @@ spec:
     nodes:
       - name: "w06-evrs"
         devices:
-          # - name: "nvme0n1"
+          - name: "nvme0n1"
+            config:
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
+              metadataDevice: ""
+          # - name: "nvme0n3"
           #   config:
           #     osdsPerDevice: "0"
           #     deviceClass: "ssd"
           #     metadataDevice: ""
+          - name: "sda"
+            config:
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
+              metadataDevice: ""
           - name: "sdb"
             config:
               osdsPerDevice: "2"
               deviceClass: "ssd"
               metadataDevice: ""
-          - name: "sda"
-            config:
-              deviceClass: "hdd"
-              metadataDevice: "nvme0n1"
           - name: "sdc"
             config:
-              osdsPerDevice: "2"
-              deviceClass: "ssd"
-              metadataDevice: ""
+              deviceClass: "hdd"
+              metadataDevice: "nvme0n3"
       - name: "w08-mini"
         devices:
           - name: "sdb"

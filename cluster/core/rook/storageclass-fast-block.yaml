@@ -14,7 +14,7 @@ metadata:
 spec:
   replicated:
     size: 2
-  # deviceClass: hdd
+  deviceClass: ssd
 ---
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
@@ -27,7 +27,7 @@ spec:
   erasureCoded:
     dataChunks: 2
     codingChunks: 1
-  # deviceClass: hdd
+  deviceClass: ssd
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass

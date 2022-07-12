@@ -11,13 +11,13 @@ parameters:
   clusterID: rook-ceph # namespace:cluster
 
   # CephFS filesystem name into which the volume shall be created
-  fsName: mediafs-ec
+  fsName: mediafs
 
   # Ceph pool into which the volume shall be created
   # Required for provisionVolume: "true"
   # For erasure coded pools, we have to create a replicated pool as the default data pool and an erasure-coded
   # pool as a secondary pool.
-  pool: mediafs-ec-erasurecoded
+  pool: mediafs-repl
 
   # The secrets contain Ceph admin credentials. These are generated automatically by the operator
   # in the same namespace as the cluster.
@@ -32,7 +32,7 @@ parameters:
   # If omitted, default volume mounter will be used - this is determined by probing for ceph-fuse
   # or by setting the default mounter explicitly via --volumemounter command-line argument.
   # mounter: kernel
-reclaimPolicy: Delete
+reclaimPolicy: Retain
 allowVolumeExpansion: true
 mountOptions:
 # uncomment the following line for debugging
