@@ -1,0 +1,18 @@
+---
+apiVersion: metallb.io/v1beta
+kind: IPAddressPool
+metadata:
+  name: main-flk
+  namespace: metallb-system
+spec:
+  addresses:
+    - "${METALLB_LB_RANGE}"
+---
+apiVersion: metallb.io/v1beta
+kind: L2Advertisement
+metadata:
+  name: metal-l2
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - main-flk

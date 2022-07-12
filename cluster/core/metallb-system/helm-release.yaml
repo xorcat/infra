@@ -22,9 +22,12 @@ spec:
     remediation:
       retries: 3
   values:
-    configInline:
-      address-pools:
-        - name: default
-          protocol: layer2
-          addresses:
-            - "${METALLB_LB_RANGE}"
+    prometheus:
+      namespace: monitoring
+      serviceAccount: prometheus-stack-kube-prom-prometheus
+
+      podMonitor:
+        enabled: true
+
+      prometheusRule:
+        enabled: true
