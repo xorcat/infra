@@ -149,7 +149,7 @@ spec:
             app.kubernetes.io/component: monitoring
         resources:
           requests:
-            cpu: 400m
+            cpu: 1000m
             memory: 3000Mi
           limits:
             memory: 3000Mi
