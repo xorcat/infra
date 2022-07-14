@@ -256,12 +256,12 @@ spec:
               osdsPerDevice: "2"
               deviceClass: "ssd"
               metadataDevice: ""
+          # - name: "sdb"
+          #   config:
+          #     osdsPerDevice: "2"
+          #     deviceClass: "ssd"
+          #     metadataDevice: ""
           - name: "sdb"
-            config:
-              osdsPerDevice: "2"
-              deviceClass: "ssd"
-              metadataDevice: ""
-          - name: "sdc"
             config:
               deviceClass: "hdd"
               metadataDevice: "nvme0n3"
@@ -321,6 +321,16 @@ spec:
               metadataDevice: "sdb"
               osdsPerDevice: "1"
               deviceClass: "hdd"
+          - name: "sdd"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
+          - name: "sde"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
     onlyApplyOSDPlacement: false
   # The section for configuring management of daemon disruptions during upgrade or fencing.
