@@ -62,6 +62,7 @@ spec:
         size: 50Gi
       data:
         claimName: media-media-0
+        readOnly: true
       config:
         storageClass: media-fs
         size: 50Gi
