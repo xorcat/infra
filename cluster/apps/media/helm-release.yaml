@@ -61,9 +61,8 @@ spec:
         storageClass: media-fs
         size: 50Gi
       data:
-        claimName: media-media-0
-        accessMode: ReadWriteOnce
-        # readOnly: true
+        claimName: media
+        accessMode: ReadWriteMany
       config:
         storageClass: media-fs
         accessMode: ReadWriteOnce
