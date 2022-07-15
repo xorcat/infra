@@ -6,4 +6,4 @@ resources:
   - hajimari
   - unifi-poller
   - timemachine
-  - media
+  # - media
