@@ -8,4 +8,5 @@ resources:
   - networking.yaml
   - nfs-provisioner.yaml
   - rook-ceph.yaml
+  - media.yaml
   - system-upgrade.yaml
