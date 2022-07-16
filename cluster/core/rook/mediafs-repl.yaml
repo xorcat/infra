@@ -84,10 +84,10 @@ spec:
     #  key: value
     resources:
     # The requests and limits set here, allow the filesystem MDS Pod(s) to use half of one CPU core and 1 gigabyte of memory
-    #  limits:
-    #    cpu: "500m"
-    #    memory: "1024Mi"
-    #  requests:
-    #    cpu: "500m"
-    #    memory: "1024Mi"
+      limits:
+        cpu: "2"
+        memory: "2Gi"
+      requests:
+        cpu: "1"
+        memory: "2Gi"
     # priorityClassName: my-priority-class
