@@ -2,71 +2,29 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: media
+  name: junkbackup
   labels:
     pod-security.kubernetes.io/enforce: privileged
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: media-udp
-  namespace: media
-  labels:
-    app: media
-  annotations:
-    coredns.io/hostname: "media.${SECRET_INTERNAL_DOMAIN}"
-    metallb.universe.tf/allow-shared-ip: "media-share-service"
-spec:
-  ports:
-    - port: 137
-      name: udp137
-      protocol: UDP
-    - port: 138
-      name: udp138
-      protocol: UDP
-  type: LoadBalancer
-  selector:
-    app: media
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: media-tcp
-  namespace: media
-  labels:
-    app: media
-  annotations:
-    coredns.io/hostname: "media.${SECRET_INTERNAL_DOMAIN}"
-    metallb.universe.tf/allow-shared-ip: "media-share-service"
-spec:
-  ports:
-    - port: 139
-      name: tcp139
-    - port: 445
-      name: tcp445
-  type: LoadBalancer
-  selector:
-    app: media
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: media
-  namespace: media
+  name: junkbackup
+  namespace: junkbackup
 spec:
   serviceName: media-udp
   replicas: 1 # Never go > 1!
   selector:
     matchLabels:
-      app: media
+      app: junkbackup
   template:
     metadata:
       labels:
-        app: media
+        app: junkbackup
     spec:
       hostNetwork: false # otherwise the auto-discovery does not work
       containers:
-        - name: media
+        - name: junkbackup
           image: mbentley/timemachine:smb
           securityContext:
             privileged: true
@@ -82,7 +40,7 @@ spec:
             - containerPort: 445
               name: tcp445
           volumeMounts:
-            - name: media
+            - name: junkbackup
               mountPath: /opt/timemachine
             - name: var-lib-samba
               mountPath: /var/lib/samba
@@ -142,10 +100,10 @@ spec:
           emptyDir: {}
   volumeClaimTemplates:
     - metadata:
-        name: media
+        name: junkbackup
       spec:
-        storageClassName: media-fs
-        accessModes: ["ReadWriteMany"]
+        storageClassName: slow-block
+        accessModes: ["ReadWriteOnce"]
         resources:
           requests:
-            storage: 6Ti
+            storage: 2Ti
