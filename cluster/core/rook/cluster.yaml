@@ -327,17 +327,22 @@ spec:
           #     osdsPerDevice: "2"
           #     deviceClass: "ssd"
           #     metadataDevice: ""
-          - name: "sdc"
-            config:
-              metadataDevice: "sdb"
-              osdsPerDevice: "1"
-              deviceClass: "hdd"
-          - name: "sdd"
+          - name: "sdb"
             config:
               metadataDevice: ""
               osdsPerDevice: "2"
               deviceClass: "ssd"
+          - name: "sdd"
+            config:
+              metadataDevice: "sdc"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
           - name: "sde"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
+          - name: "sdf"
             config:
               metadataDevice: ""
               osdsPerDevice: "2"
