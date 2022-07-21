@@ -91,6 +91,9 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
     traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+    external-dns/is-public: "true"
+    external-dns.alpha.kubernetes.io/target: "home.${SECRET_DOMAIN}"
+    external-dns.alpha.kubernetes.io/hostname: "hass.${SECRET_DOMAIN}."
 spec:
   ingressClassName: traefik
   rules:
@@ -128,6 +131,9 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    external-dns/is-public: "true"
+    external-dns.alpha.kubernetes.io/target: "home.${SECRET_DOMAIN}"
+    external-dns.alpha.kubernetes.io/hostname: "hass.${SECRET_DOMAIN}."
 spec:
   ingressClassName: traefik
   rules:
