@@ -144,6 +144,16 @@ spec:
                 name: ha-service
                 port:
                   name: http
+    - host: "hass.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - pathType: Exact
+            path: /auth/token
+            backend:
+              service:
+                name: ha-service
+                port:
+                  name: http
   tls:
     - hosts:
         - "hass.${SECRET_DOMAIN}"
