@@ -262,17 +262,17 @@ spec:
           #     osdsPerDevice: "0"
           #     deviceClass: "ssd"
           #     metadataDevice: ""
-          - name: "sda"
-            config:
-              osdsPerDevice: "2"
-              deviceClass: "ssd"
-              metadataDevice: ""
+          # - name: "sda"
+          #   config:
+          #     osdsPerDevice: "2"
+          #     deviceClass: "ssd"
+          #     metadataDevice: ""
           # - name: "sdb"
           #   config:
           #     osdsPerDevice: "2"
           #     deviceClass: "ssd"
           #     metadataDevice: ""
-          - name: "sdb"
+          - name: "sda"
             config:
               deviceClass: "hdd"
               metadataDevice: "nvme0n3"
@@ -317,36 +317,55 @@ spec:
           #     osdsPerDevice: "0"
       - name: "w10-nuca"
         devices:
-          # - name: "sdb"
-          #   config:
-          #     osdsPerDevice: "0"
-          #     deviceClass: "ssd"
-          #     metadataDevice: ""
-          # - name: "sdc"
-          #   config:
-          #     osdsPerDevice: "2"
-          #     deviceClass: "ssd"
-          #     metadataDevice: ""
           - name: "sdb"
             config:
               metadataDevice: ""
               osdsPerDevice: "2"
               deviceClass: "ssd"
-          - name: "sdd"
+          - name: "sde"
+            config:
+              metadataDevice: "sdd"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+          - name: "sdf"
             config:
               metadataDevice: "sdc"
               osdsPerDevice: "1"
               deviceClass: "hdd"
-          - name: "sde"
+          - name: "sdg"
             config:
               metadataDevice: ""
               osdsPerDevice: "2"
               deviceClass: "ssd"
-          - name: "sdf"
+          - name: "sdh"
             config:
               metadataDevice: ""
               osdsPerDevice: "2"
               deviceClass: "ssd"
+      - name: "w11-dxps"
+        devices:
+          - name: "sdb"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "1"
+              deviceClass: "ssd"
+      - name: "w12-qnap"
+        resources:
+          requests:
+            memory: 1.5Gi
+          limits:
+            memory: 1.5Gi
+        devices:
+          - name: "sdb"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+          - name: "sdc"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
     onlyApplyOSDPlacement: false
   # The section for configuring management of daemon disruptions during upgrade or fencing.

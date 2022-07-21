@@ -16,7 +16,6 @@ spec:
   selector:
     app: rook-ceph-mgr
     mgr: a
-    ceph_daemon_id: a
     rook_cluster: rook-ceph
   sessionAffinity: None
   type: ClusterIP
@@ -37,7 +36,6 @@ spec:
       targetPort: 8123
   selector:
     app: rook-ceph-mgr
-    ceph_daemon_id: b
     mgr: b
     rook_cluster: rook-ceph
   sessionAffinity: None
