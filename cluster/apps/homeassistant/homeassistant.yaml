@@ -104,9 +104,20 @@ spec:
                 name: ha-service
                 port:
                   name: http
+    - host: "hass.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: ha-service
+                port:
+                  name: http
   tls:
     - hosts:
         - "hass.${SECRET_INTERNAL_DOMAIN}"
+        - "hass.${SECRET_DOMAIN}"
       secretName: ha-tls
 ---
 apiVersion: networking.k8s.io/v1
