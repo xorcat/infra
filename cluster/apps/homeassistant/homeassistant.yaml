@@ -85,7 +85,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ha-internal-ingress
+  name: ha-auth-ingress
   namespace: homeassistant
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -108,7 +108,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: /
+            path: /auth
             backend:
               service:
                 name: ha-service
@@ -123,7 +123,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ha-external-ingress
+  name: ha-general-ingress
   namespace: homeassistant
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -142,13 +142,6 @@ spec:
             backend:
               service:
                 name: ha-service
-                port:
-                  name: http
-          - pathType: Prefix
-            path: /auth
-            backend:
-              service:
-                name: error-pages
                 port:
                   name: http
   tls:
