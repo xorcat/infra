@@ -118,7 +118,7 @@ spec:
     - hosts:
         - "hass.${SECRET_INTERNAL_DOMAIN}"
         - "hass.${SECRET_DOMAIN}"
-      secretName: ha-tls
+      secretName: ha-int-tls
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
