@@ -5,6 +5,7 @@ resources:
   - namespaces
   # - rook
   - kube-system
+  - cilium
   - cert-manager
   - metallb-system
   - k8s-gateway
