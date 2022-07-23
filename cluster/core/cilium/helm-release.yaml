@@ -4,7 +4,7 @@ metadata:
   name: cilium
   namespace: kube-system
 spec:
-  upgradeCompatibility: 1.11
+  # upgradeCompatibility: 1.11
   interval: 5m
   chart:
     spec:
