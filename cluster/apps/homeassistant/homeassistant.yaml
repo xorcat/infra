@@ -27,47 +27,47 @@ spec:
   resources:
     requests:
       storage: 20Gi
-# ---
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   labels:
-#     app: homeassistant
-#   name: homeassistant
-#   namespace: homeassistant
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: homeassistant
-#   template:
-#     metadata:
-#       labels:
-#         app: homeassistant
-#     spec:
-#       volumes:
-#         - name: ha-config
-#           persistentVolumeClaim:
-#             claimName: homeassistant-config
-#         - name: ha-db
-#           persistentVolumeClaim:
-#             claimName: homeassistant-db
-#       containers:
-#         - image: ghcr.io/home-assistant/home-assistant:2022.7.6
-#           name: homeassistant
-#           volumeMounts:
-#             - mountPath: "/config"
-#               name: ha-config
-#         - image: postgres:14.4
-#           name: postgres
-#           volumeMounts:
-#             - mountPath: "/var/lib/postgresql/data"
-#               name: ha-db
-#           env:
-#             - name: PGDATA
-#               value: /var/lib/postgresql/data/pgdata
-#             - name: POSTGRES_PASSWORD
-#               value: "${SECRET_HASSDB_PASSWORD}"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: homeassistant
+  name: homeassistant
+  namespace: homeassistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassistant
+  template:
+    metadata:
+      labels:
+        app: homeassistant
+    spec:
+      volumes:
+        - name: ha-config
+          persistentVolumeClaim:
+            claimName: homeassistant-config
+        - name: ha-db
+          persistentVolumeClaim:
+            claimName: homeassistant-db
+      containers:
+        - image: ghcr.io/home-assistant/home-assistant:2022.7.6
+          name: homeassistant
+          volumeMounts:
+            - mountPath: "/config"
+              name: ha-config
+        - image: postgres:14.4
+          name: postgres
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: ha-db
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            - name: POSTGRES_PASSWORD
+              value: "${SECRET_HASSDB_PASSWORD}"
 ---
 apiVersion: v1
 kind: Service
