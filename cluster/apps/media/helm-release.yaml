@@ -65,6 +65,5 @@ spec:
         claimName: media
         accessMode: ReadOnlyMany
       config:
-        storageClass: media-fs
         accessMode: ReadWriteOnce
-        size: 50Gi
+        claimName: plex-config
