@@ -1,0 +1,132 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: homeassistant
+  namespace: homeassistant
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: home-assistant
+      version: 13.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: homeassistant/home-assistant
+      tag: 2022.7.6
+    env:
+      TZ: "Australia/Brisbane"
+    service:
+      main:
+        selector:
+          app: homeassistant
+    ingress:
+      internal:
+        ingressClassName: traefik
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+        hosts:
+          - host: "hass.${SECRET_INTERNAL_DOMAIN}"
+            http:
+              paths:
+                - pathType: Prefix
+                  path: /
+                  backend:
+                    service:
+                      name: ha-service
+                      port:
+                        name: http
+          - host: "hass.${SECRET_DOMAIN}"
+            http:
+              paths:
+                - pathType: Prefix
+                  path: /auth
+                  backend:
+                    service:
+                      name: ha-service
+                      port:
+                        name: http
+        tls:
+          - hosts:
+              - "hass.${SECRET_INTERNAL_DOMAIN}"
+              - "hass.${SECRET_DOMAIN}"
+            secretName: ha-int-tls
+      main:
+        ingressClassName: traefik
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          external-dns/is-public: "true"
+          external-dns.alpha.kubernetes.io/target: "home.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/hostname: "hass.${SECRET_DOMAIN}."
+        hosts:
+          - host: "hass.${SECRET_DOMAIN}"
+            http:
+              paths:
+                - pathType: Prefix
+                  path: /
+                  backend:
+                    service:
+                      name: ha-service
+                      port:
+                        name: http
+          - host: "hass.${SECRET_DOMAIN}"
+            http:
+              paths:
+                - pathType: Exact
+                  path: /auth/token
+                  backend:
+                    service:
+                      name: ha-service
+                      port:
+                        name: http
+        tls:
+          - hosts:
+              - "hass.${SECRET_DOMAIN}"
+            secretName: ha-ext-tls
+    prometheus:
+      serviceMonitor:
+        enabled: false
+    probes:
+      liveness:
+        enabled: false
+      readiness:
+        enabled: false
+      startup:
+        enabled: true
+    persistence:
+      config:
+        enabled: true
+        existingClaim: homeassistant-config
+    resources:
+      limits:
+        memory: 3000Mi
+      requests:
+        cpu: 200m
+        memory: 3000Mi
+    postgresql:
+      enabled: true
+      image:
+        repository: postgres
+        tag: "14.1"
+      postgresqlUsername: postgres
+      postgresqlDatabase: "${SECRET_HASSDB_PASSWORD}"
+      postgresqlDataDir: "/data/pgdata"
+      persistence:
+        enabled: true
+        existingClaim: homeassistant-db
+        mountPath: "/data/"
+      shmVolume:
+        enabled: false
+      volumePermissions:
+        enabled: false
