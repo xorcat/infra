@@ -8,6 +8,7 @@ resources:
   - external-dns.yaml
   - grafana.yaml
   - hajimari.yaml
+  - harbor.yaml
   - jetstack.yaml
   - k8s-at-home.yaml
   - k8s-gateway.yaml
