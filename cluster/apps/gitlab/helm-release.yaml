@@ -47,6 +47,10 @@ spec:
         ingress:
           tls:
             secretName: gitlab-tls
+    certmanager:
+      install: false
+    nginx:
+      install: false
     minio:
       ingress:
         tls:
