@@ -30,5 +30,5 @@ data:
     ${SECRET_INTERNAL_DOMAIN}:53 {
         errors
         cache 30
-        forward . k8s-gateway.networking.svc
+        forward . ${METALLB_K8S_GATEWAY_ADDR}
     }
