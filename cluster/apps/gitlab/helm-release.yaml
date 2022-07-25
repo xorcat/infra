@@ -51,6 +51,8 @@ spec:
       install: false
     nginx:
       install: false
+    nginx-ingress:
+      enabled: false
     minio:
       ingress:
         tls:
