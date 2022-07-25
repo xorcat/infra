@@ -41,3 +41,5 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
     externalURL: "https://harbor.${SECRET_INTERNAL_DOMAIN}"
+    harborAdminPassword: "${SECRET_HARBOR_PASSWORD}"
+    secretKey: "${SECRET_HARBOR_CRYPT_KEY}"
