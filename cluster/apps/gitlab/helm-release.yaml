@@ -35,6 +35,9 @@ spec:
           name: "minio.git.${SECRET_INTERNAL_DOMAIN}"
           https: false
         ssh: "git.${SECRET_INTERNAL_DOMAIN}"
+        kas:
+          name: "kas.git.${SECRET_INTERNAL_DOMAIN}"
+          https: false
       ingress:
         configureCertmanager: false
         class: traefik
@@ -58,5 +61,9 @@ spec:
       ingress:
         tls:
           secretName: gitlab-minio-tls
+    kas:
+      ingress:
+        tls:
+          secretName: gitlab-kas-tls
     registry:
       enabled: false
