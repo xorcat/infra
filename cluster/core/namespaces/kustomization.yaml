@@ -9,4 +9,5 @@ resources:
   - nfs-provisioner.yaml
   - rook-ceph.yaml
   - media.yaml
+  - harbor.yaml
   - system-upgrade.yaml
