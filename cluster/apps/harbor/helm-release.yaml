@@ -30,14 +30,14 @@ spec:
         secret:
           secretName: harbor-core-tls
           notarySecretName: harbor-notary-tls
-    ingress:
-      hosts:
-        core: "harbor.${SECRET_INTERNAL_DOMAIN}"
-        notary: "sign.harbor.${SECRET_INTERNAL_DOMAIN}"
-      enabled: true
-      className: traefik
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-production"
-        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+      ingress:
+        hosts:
+          core: "harbor.${SECRET_INTERNAL_DOMAIN}"
+          notary: "sign.harbor.${SECRET_INTERNAL_DOMAIN}"
+        enabled: true
+        className: traefik
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
     externalURL: "https://harbor.${SECRET_INTERNAL_DOMAIN}"
