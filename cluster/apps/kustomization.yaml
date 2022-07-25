@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - default
   - harbor
+  - gitlab
   - media
   - homeassistant
   - kube-system

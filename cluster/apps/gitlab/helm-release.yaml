@@ -1,0 +1,55 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: gitlab
+  namespace: gitlab
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: gitlab
+      version: 6.2.0
+      sourceRef:
+        kind: HelmRepository
+        name: gitlab
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    global:
+      hosts:
+        domain: "${SECRET_INTERNAL_DOMAIN}"
+        https: false
+        gitlab:
+          name: "git.${SECRET_INTERNAL_DOMAIN}"
+          https: false
+        minio:
+          name: "minio.git.${SECRET_INTERNAL_DOMAIN}"
+          https: false
+        ssh: "git.${SECRET_INTERNAL_DOMAIN}"
+      ingress:
+        configureCertmanager: false
+        class: traefik
+        provider: traefik
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+    gitlab:
+      webservice:
+        ingress:
+          tls:
+            secretName: gitlab-tls
+    minio:
+      ingress:
+        tls:
+          secretName: gitlab-minio-tls
+    registry:
+      enabled: false

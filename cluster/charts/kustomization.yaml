@@ -6,6 +6,7 @@ resources:
   - cilium.yaml
   - emberstack.yaml
   - external-dns.yaml
+  - gitlab.yaml
   - grafana.yaml
   - hajimari.yaml
   - harbor.yaml
