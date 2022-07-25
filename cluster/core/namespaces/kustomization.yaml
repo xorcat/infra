@@ -10,4 +10,5 @@ resources:
   - rook-ceph.yaml
   - media.yaml
   - harbor.yaml
+  - gitlab.yaml
   - system-upgrade.yaml
