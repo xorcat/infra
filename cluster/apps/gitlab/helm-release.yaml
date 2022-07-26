@@ -27,7 +27,7 @@ spec:
     global:
       hosts:
         domain: "${SECRET_INTERNAL_DOMAIN}"
-        https: false
+        https: true
         gitlab:
           name: "git.${SECRET_INTERNAL_DOMAIN}"
           https: true
