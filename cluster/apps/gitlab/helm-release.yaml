@@ -30,14 +30,14 @@ spec:
         https: false
         gitlab:
           name: "git.${SECRET_INTERNAL_DOMAIN}"
-          https: false
+          https: true
         minio:
           name: "minio.git.${SECRET_INTERNAL_DOMAIN}"
-          https: false
+          https: true
         ssh: "git.${SECRET_INTERNAL_DOMAIN}"
         kas:
           name: "kas.git.${SECRET_INTERNAL_DOMAIN}"
-          https: false
+          https: true
       ingress:
         configureCertmanager: false
         class: traefik
