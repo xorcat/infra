@@ -25,7 +25,7 @@ spec:
       strategy: RollingUpdate
     image:
       repository: "harbor.${SECRET_INTERNAL_DOMAIN}/work/mapsapi-test"
-      tag: 0.1.2
+      tag: v0.1.2
     imagePullSecrets:
       - name: harbor
     service:
