@@ -28,6 +28,20 @@ spec:
       tag: v0.1.2
     imagePullSecrets:
       - name: harbor
+    env:
+      - name: MAPSAPI_JWT_ISSUER_ID
+        value: "${SECRET_MAPSAPI_ISSUER}"
+      - name: MAPSAPI_JWT_KEY_ID
+        value: "${SECRET_MAPSAPI_KEY_ID}"
+      - name: MAPSAPI_JWT_KEY
+        value: /secrets/es256.key
+    persistence:
+      config:
+        enabled: true
+        type: secret
+        name: mapsapi-signing-key
+        mountPath: /secrets
+        readOnly: true
     service:
       main:
         ports:
