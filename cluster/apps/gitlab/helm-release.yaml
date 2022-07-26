@@ -51,6 +51,12 @@ spec:
         ingress:
           tls:
             secretName: gitlab-tls
+      gitlab-runner:
+        runners:
+          config: |
+            [[runners]]
+              [runners.kubernetes]
+              environment = [ "container=kube" ]
     certmanager:
       install: false
     nginx:
