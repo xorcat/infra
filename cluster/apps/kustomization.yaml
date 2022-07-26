@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - default
   - harbor
+  - mapsapi-test
   - gitlab
   - media
   - homeassistant
