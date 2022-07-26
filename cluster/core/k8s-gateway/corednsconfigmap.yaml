@@ -28,6 +28,7 @@ data:
         loadbalance
     }
     ${SECRET_INTERNAL_DOMAIN}:53 {
+        rewrite stop type AAAA A
         errors
         cache 30
         forward . ${METALLB_K8S_GATEWAY_ADDR}
