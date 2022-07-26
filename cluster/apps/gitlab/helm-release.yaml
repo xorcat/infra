@@ -51,9 +51,6 @@ spec:
         ingress:
           tls:
             secretName: gitlab-tls
-      gitlab-runner:
-        runners:
-          privileged: true
     certmanager:
       install: false
     nginx:
