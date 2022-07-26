@@ -55,7 +55,7 @@ spec:
         runners:
           config: |
             [[runners]]
-              [runners.kubernetes]
+              executor = "kubernetes"
               environment = [ "container=kube" ]
     certmanager:
       install: false
