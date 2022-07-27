@@ -44,8 +44,10 @@ spec:
         namespace: monitoring
         enabled: true
     operator:
-      serviceMonitor:
-        labels:
-          monitorwith: prometheus
-        namespace: monitoring
+      prometheus:
         enabled: true
+        serviceMonitor:
+          labels:
+            monitorwith: prometheus
+          namespace: monitoring
+          enabled: true
