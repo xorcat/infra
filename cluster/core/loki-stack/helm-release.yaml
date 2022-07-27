@@ -23,7 +23,9 @@ spec:
       sidecar:
         datasources:
           enabled: true
-          maxLines: 1000
+          maxLines: 5000
+        dashboards:
+          enabled: true
     promtail:
       enabled: true
     loki:
@@ -75,3 +77,6 @@ spec:
         table_manager:
           retention_deletes_enabled: true
           retention_period: 12h
+      persistence:
+        enable: true
+        size: 20Gi
