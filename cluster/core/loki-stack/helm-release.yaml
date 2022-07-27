@@ -38,7 +38,7 @@ spec:
         prometheusRule:
           enabled: true
           additionalLabels:
-            app.kubernetes.io/part-of: kube-prometheus-stack
+            release: prometheus-stack
           rules:
             #  Some examples from https://awesome-prometheus-alerts.grep.to/rules.html#loki
             - alert: LokiProcessTooManyRestarts
