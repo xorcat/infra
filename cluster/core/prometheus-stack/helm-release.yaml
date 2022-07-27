@@ -77,8 +77,8 @@ spec:
                 username: 'flkbot'
               secure_settings:
                 token: 'xoxp-169334286164-168630620641-420363271094-480f9cce52f084b8d83b8b3e0f647def'
-          delete_notifiers:
-            - name: grafana-default-email
+          # delete_notifiers:
+          #   - name: grafana-default-email
       dashboards:
         default:
           ceph-cluster:
