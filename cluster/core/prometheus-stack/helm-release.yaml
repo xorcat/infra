@@ -149,6 +149,8 @@ spec:
         replicas: 2
         podAntiAffinity: "soft"
         podMonitorNamespaceSelector: {}
+        serviceMonitorSelector: {}
+        ruleSelector: {}
         ## Using PersistentVolumeClaim
         ##
         storageSpec:
