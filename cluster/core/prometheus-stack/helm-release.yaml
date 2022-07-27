@@ -17,6 +17,7 @@ spec:
       version: 37.x
   install:
     crds: Create
+  timeout: 10m
   interval: 5m0s
   upgrade:
     crds: CreateReplace
@@ -31,7 +32,7 @@ spec:
         - 10.1.1.241
         - 10.1.1.242
     alertmanager:
-      enabled: false
+      enabled: true
     grafana:
       enabled: true
       defaultDashboardsTimezone: Australia/Brisbane
