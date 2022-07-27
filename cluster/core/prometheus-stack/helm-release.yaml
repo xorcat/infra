@@ -34,9 +34,9 @@ spec:
         - 10.1.1.242
         - 10.1.1.244
     alertmanager:
-      enabled: true
+      enabled: false
       ingress:
-        enabled: true
+        enabled: false
         pathType: ImplementationSpecific
         ingressClassName: "traefik"
         annotations:
