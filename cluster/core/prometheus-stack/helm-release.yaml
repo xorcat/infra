@@ -64,6 +64,19 @@ spec:
               editable: true
               options:
                 path: /var/lib/grafana/dashboards/default
+      notifiers:
+        notifiers.yaml:
+          notifiers:
+            - name: aaron-slack
+              type: slack
+              uid: slacknotifier-1
+              org_id: 1
+              is_default: true
+              settings:
+                recipient: 'D4ZUNKSUE'
+                username: 'flkbot'
+              secure_settings:
+                token: 'xoxp-169334286164-168630620641-420363271094-480f9cce52f084b8d83b8b3e0f647def'
       dashboards:
         default:
           ceph-cluster:
