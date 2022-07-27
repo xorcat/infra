@@ -38,7 +38,7 @@ spec:
         prometheusRule:
           enabled: true
           additionalLabels:
-            release: prometheus-stack
+            monitorwith: prometheus
           rules:
             #  Some examples from https://awesome-prometheus-alerts.grep.to/rules.html#loki
             - alert: LokiProcessTooManyRestarts

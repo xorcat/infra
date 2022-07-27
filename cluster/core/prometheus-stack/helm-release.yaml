@@ -150,7 +150,9 @@ spec:
         podAntiAffinity: "soft"
         podMonitorNamespaceSelector: {}
         serviceMonitorSelector: {}
-        ruleSelector: {}
+        ruleSelector:
+          matchLabels:
+            monitorwith: prometheus
         ## Using PersistentVolumeClaim
         ##
         storageSpec:
