@@ -78,6 +78,18 @@ spec:
             gnetId: 5342
             revision: 5
             datasource: Prometheus
+          cilium-1-11-agent:
+            gnetId: 15513
+            revision: 1
+            datasource: Prometheus
+          cilium-1-11-hubble:
+            gnetId: 15515
+            revision: 1
+            datasource: Prometheus
+          cilium-1-11-operator:
+            gnetId: 15514
+            revision: 1
+            datasource: Prometheus
           unifi-dpi:
             gnetId: 10419
             revision: 3
