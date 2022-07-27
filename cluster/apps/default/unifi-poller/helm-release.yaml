@@ -69,15 +69,16 @@ spec:
         labels:
           release: prometheus-stack
       prometheusRule:
-        enabled: false
-        labels: {}
-        rules: []
-        # - alert: UnifiPollerAbsent
-        #   annotations:
-        #     description: Unifi Poller has disappeared from Prometheus service discovery.
-        #     summary: Unifi Poller is down.
-        #   expr: |
-        #     absent(up{job=~".*unifi-poller.*"} == 1)
-        #   for: 5m
-        #   labels:
-        #     severity: critical
+        enabled: true
+        labels:
+          monitorwith: prometheus
+        rules:
+          - alert: UnifiPollerAbsent
+            annotations:
+              description: Unifi Poller has disappeared from Prometheus service discovery.
+              summary: Unifi Poller is down.
+            expr: |
+              absent(up{job=~".*unifi-poller.*"} == 1)
+            for: 5m
+            labels:
+              severity: critical
