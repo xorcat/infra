@@ -36,6 +36,8 @@ metadata:
   name: homeassistant
   namespace: homeassistant
 spec:
+  strategy:
+    type: recreate
   replicas: 1
   selector:
     matchLabels:
