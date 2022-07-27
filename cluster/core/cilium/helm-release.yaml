@@ -23,3 +23,28 @@ spec:
         enabled: true
       ui:
         enabled: true
+      metrics:
+        enabled:
+          - dns:query;ignoreAAAA
+          - drop
+          - tcp
+          - flow
+          - http
+          - icmp
+        serviceMonitor:
+          enabled: true
+          labels:
+            monitorwith: prometheus
+          namespace: monitoring
+    prometheus:
+      enabled: true
+      serviceMonitor:
+        labels:
+          monitorwith: prometheus
+        namespace: monitoring
+        enabled: true
+    operator:
+      serviceMonitor:
+        labels:
+          monitorwith: prometheus
+        enabled: true
