@@ -8,7 +8,10 @@ resources:
   - common.yaml
   - operator.yaml
   - cluster.yaml
-  # - storageclass-fast.yaml
-  - mediafs-ec.yaml
-  - storageclass-slow.yaml
-  - storageclass-slowfs.yaml
+  - storageclass-fast-block.yaml
+  - storageclass-mediafs.yaml
+  - mediafs-repl.yaml
+  - storageclass-nosafety.yaml
+  - storageclass-slow-block.yaml
+  - api-ingress.yaml
+  - dash-ingress.yaml
