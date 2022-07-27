@@ -22,9 +22,11 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
-    # defaultRules:
-    #   rules:
-    #     kubeApiserverAvailability: false
+    defaultRules:
+      labels:
+        monitorwith: prometheus
+      # rules:
+      #   kubeApiserverAvailability: false
     kubeEtcd:
       enabled: true
       endpoints:
