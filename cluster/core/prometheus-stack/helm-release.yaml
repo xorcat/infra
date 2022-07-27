@@ -29,8 +29,8 @@ spec:
       enabled: true
       endpoints:
         - 10.1.1.240
-        - 10.1.1.241
         - 10.1.1.242
+        - 10.1.1.244
     alertmanager:
       enabled: true
     grafana:
