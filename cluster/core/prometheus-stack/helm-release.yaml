@@ -25,8 +25,6 @@ spec:
     defaultRules:
       labels:
         monitorwith: prometheus
-      # rules:
-      #   kubeApiserverAvailability: false
     kubeEtcd:
       enabled: true
       endpoints:
@@ -201,4 +199,4 @@ spec:
             memory: 4000Mi
           limits:
             memory: 4000Mi
-        retention: 20d
+        retention: 25d
