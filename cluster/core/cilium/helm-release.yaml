@@ -4,11 +4,10 @@ metadata:
   name: cilium
   namespace: kube-system
 spec:
-  # upgradeCompatibility: 1.11
   interval: 5m
   chart:
     spec:
-      version: 1.11.7
+      version: 1.12.0
       chart: cilium
       sourceRef:
         kind: HelmRepository
@@ -16,6 +15,7 @@ spec:
         namespace: flux-system
       interval: 60m
   values:
+    upgradeCompatibility: '1.11'
     ipam:
       mode: kubernetes
     hubble:
