@@ -47,4 +47,5 @@ spec:
       serviceMonitor:
         labels:
           monitorwith: prometheus
+        namespace: monitoring
         enabled: true
