@@ -37,7 +37,7 @@ spec:
       PHOTOPRISM_DATABASE_SERVER: photoprism-mariadb:3306
       PHOTOPRISM_DATABASE_NAME: photoprism
       PHOTOPRISM_DATABASE_USER: photoprism
-      PHOTOPRISM_DATABASE_PASSWORD: "${SECRET_PHOTOPRISM_PASS}"
+      PHOTOPRISM_DATABASE_PASSWORD: "${SECRET_PHOTOPRISM_DB}"
     ingress:
       main:
         enabled: true
