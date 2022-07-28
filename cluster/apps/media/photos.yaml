@@ -1,0 +1,63 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: photoprism
+  namespace: media
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: photoprism
+      version: 7.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+  values:
+    resources:
+      requests:
+        cpu: 5
+        memory: 4Gi
+      limits:
+        memory: 4Gi
+    env:
+      TZ: "Australia/Brisbane"
+      PHOTOPRISM_ORIGINALS_PATH: /photoprism/media/pictures/
+      PHOTOPRISM_STORAGE_PATH: /photoprism/storage/
+      # PHOTOPRISM_IMPORT_PATH: /photoprism/unsorted/pictures/
+      PHOTOPRISM_ADMIN_PASSWORD: ${SECRET_PHOTOPRISM_PASS}
+      PHOTOPRISM_PUBLIC: "false"
+      PHOTOPRISM_READONLY: "false"
+      PHOTOPRISM_ORIGINALS_LIMIT: 5000
+      PHOTOPRISM_WORKERS: 4
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+        hosts:
+          - host: "photos.${SECRET_INTERNAL_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: photoprism-tls
+            hosts:
+              - "photos.${SECRET_INTERNAL_DOMAIN}"
+    persistence:
+      config:
+        enabled: true
+        mountPath: /photoprism/storage
+        existingClaim: photoprism-config
+      media:
+        enabled: true
+        mountPath: /photoprism/media
+        storageClass: block
+      # unsorted:
+      #   enabled: true
+      #   mountPath: /photoprism/unsorted
+      #   existingClaim: media-nfs-unsorted-pvc
