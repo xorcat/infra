@@ -18,10 +18,10 @@ spec:
   values:
     resources:
       requests:
-        cpu: 4
-        memory: 4Gi
+        cpu: 3
+        memory: 3Gi
       limits:
-        memory: 4Gi
+        memory: 3Gi
     env:
       TZ: "Australia/Brisbane"
       PHOTOPRISM_ORIGINALS_PATH: /photoprism/media/pictures/
@@ -31,7 +31,7 @@ spec:
       PHOTOPRISM_PUBLIC: "false"
       PHOTOPRISM_READONLY: "false"
       PHOTOPRISM_ORIGINALS_LIMIT: 5000
-      PHOTOPRISM_WORKERS: 4
+      PHOTOPRISM_WORKERS: 3
     ingress:
       main:
         enabled: true
