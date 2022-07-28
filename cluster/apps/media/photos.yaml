@@ -52,11 +52,13 @@ spec:
       config:
         enabled: true
         mountPath: /photoprism/storage
-        existingClaim: photoprism-config
+        storageClass: block
+        size: 200Gi
       media:
         enabled: true
         mountPath: /photoprism/media
         storageClass: block
+        size: 2Ti
       # unsorted:
       #   enabled: true
       #   mountPath: /photoprism/unsorted
