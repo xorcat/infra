@@ -129,9 +129,6 @@ spec:
       postgresqlDatabase: "${SECRET_HASSDB_PASSWORD}"
       postgresqlDataDir: "/data/pgdata"
       persistence:
-        existingClaim: homeassistant-db
-        mountPath: "/data/"
-      shmVolume:
-        enabled: false
-      volumePermissions:
-        enabled: false
+        primary:
+          existingClaim: homeassistant-db
+          mountPath: "/data/"
