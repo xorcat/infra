@@ -113,7 +113,7 @@ spec:
               secretName: "hass-config-tls"
         volumeMounts:
           - name: config
-            mountPath: /config
+            mountPath: "/config"
     resources:
       limits:
         memory: 1500Mi
@@ -130,5 +130,6 @@ spec:
       postgresqlDataDir: "/data/pgdata"
       persistence:
         primary:
+          enabled: true
           existingClaim: homeassistant-db
-          mountPath: "/data/"
+          mountPath: "/data"
