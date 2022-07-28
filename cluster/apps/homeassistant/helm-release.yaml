@@ -123,13 +123,12 @@ spec:
     postgresql:
       enabled: true
       image:
-        repository: postgres
+        repository: bitnami/postgres
         tag: "14.4"
       postgresqlUsername: postgres
       postgresqlDatabase: "${SECRET_HASSDB_PASSWORD}"
       postgresqlDataDir: "/data/pgdata"
       persistence:
-        primary:
-          enabled: true
-          existingClaim: homeassistant-db
-          mountPath: "/data"
+        enabled: true
+        existingClaim: homeassistant-db
+        mountPath: "/data"
