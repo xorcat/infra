@@ -24,9 +24,9 @@ spec:
         memory: 3Gi
     env:
       TZ: "Australia/Brisbane"
-      PHOTOPRISM_ORIGINALS_PATH: /photoprism/media/pictures/
+      PHOTOPRISM_ORIGINALS_PATH: /photoprism/originals/
       PHOTOPRISM_STORAGE_PATH: /photoprism/storage/
-      # PHOTOPRISM_IMPORT_PATH: /photoprism/unsorted/pictures/
+      PHOTOPRISM_IMPORT_PATH: /photoprism/import/
       PHOTOPRISM_ADMIN_PASSWORD: ${SECRET_PHOTOPRISM_PASS}
       PHOTOPRISM_PUBLIC: "false"
       PHOTOPRISM_READONLY: "false"
@@ -57,11 +57,13 @@ spec:
         accessMode: ReadWriteOnce
       media:
         enabled: true
-        mountPath: /photoprism/media
+        mountPath: /photoprism/originals
         storageClass: block
         size: 2Ti
         accessMode: ReadWriteOnce
-      # unsorted:
-      #   enabled: true
-      #   mountPath: /photoprism/unsorted
-      #   existingClaim: media-nfs-unsorted-pvc
+      import:
+        enabled: true
+        mountPath: /photoprism/import
+        storageClass: unsafe-block
+        size: 500Gi
+        accessMode: ReadWriteOnce
