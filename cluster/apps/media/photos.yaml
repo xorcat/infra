@@ -54,11 +54,13 @@ spec:
         mountPath: /photoprism/storage
         storageClass: block
         size: 200Gi
+        accessMode: ReadWriteOnce
       media:
         enabled: true
         mountPath: /photoprism/media
         storageClass: block
         size: 2Ti
+        accessMode: ReadWriteOnce
       # unsorted:
       #   enabled: true
       #   mountPath: /photoprism/unsorted
