@@ -45,6 +45,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: rook-dashboard
+                name: rook-ceph-mgr-dashboard
                 port:
-                  name: dashboard
+                  name: http-dashboard
