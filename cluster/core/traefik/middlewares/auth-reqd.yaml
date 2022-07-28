@@ -1,0 +1,32 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: auth-details
+  namespace: networking
+spec:
+  digestAuth:
+    secret: authsecret
+    removeHeader: true
+    realm: ${SECRET_INTERNAL_DOMAIN}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: authsecret
+  namespace: default
+
+data:
+  users: |2
+    ${SECRET_AUTH_CREDS}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: auth-local
+  namespace: networking
+spec:
+  chain:
+    middlewares:
+      - name: internal-ips
+      - name: auth-details

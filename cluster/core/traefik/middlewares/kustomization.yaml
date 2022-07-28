@@ -7,3 +7,4 @@ resources:
   - github-only.yaml
   - trusted-only.yaml
   - internal-only.yaml
+  - auth-reqd.yaml
