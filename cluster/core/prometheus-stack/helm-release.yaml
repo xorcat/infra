@@ -40,7 +40,7 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-auth-local@kubernetescrd"
         hosts:
           - "alerts.mon.${SECRET_INTERNAL_DOMAIN}"
         tls:
@@ -150,7 +150,7 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-auth-local@kubernetescrd"
         hosts:
           - "mon.${SECRET_INTERNAL_DOMAIN}"
         tls:
@@ -165,7 +165,7 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-auth-local@kubernetescrd"
         hosts:
           - "prom.mon.${SECRET_INTERNAL_DOMAIN}"
         tls:
