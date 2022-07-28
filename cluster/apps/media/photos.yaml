@@ -61,12 +61,16 @@ spec:
         storageClass: block
         size: 200Gi
         accessMode: ReadWriteOnce
+        annotations:
+          helm.sh/resource-policy: "keep"
       media:
         enabled: true
         mountPath: /photoprism/originals
         storageClass: block
         size: 2Ti
         accessMode: ReadWriteOnce
+        annotations:
+          helm.sh/resource-policy: "keep"
       import:
         enabled: true
         mountPath: /photoprism/import
@@ -86,3 +90,5 @@ spec:
           enabled: true
           storageClass: block
           size: 20Gi
+          annotations:
+            helm.sh/resource-policy: "keep"
