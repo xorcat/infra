@@ -11,7 +11,7 @@ resources:
   - storageclass-fast-block.yaml
   - storageclass-mediafs.yaml
   - mediafs-repl.yaml
-  - storageclass-nosafety.yaml
+  - storageclass-unsafe.yaml
   - storageclass-slow-block.yaml
   - api-ingress.yaml
   - dash-ingress.yaml
