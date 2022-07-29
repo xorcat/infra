@@ -64,6 +64,7 @@ spec:
       data:
         claimName: media
         accessMode: ReadOnlyMany
+        subPath: media
       config:
         accessMode: ReadWriteOnce
         claimName: plex-config
