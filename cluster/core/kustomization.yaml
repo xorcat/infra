@@ -7,6 +7,7 @@ resources:
   - kube-system
   - cilium
   - cert-manager
+  - goldilocks
   - metallb-system
   - k8s-gateway
   - traefik
