@@ -63,7 +63,15 @@ spec:
           # Enable a killswitch that kills all trafic when the VPN is not connected
           KILLSWITCH: "true"
         configFile: |-
-          ${SECRET_VPN_CONFIG}
+          [Interface]
+          PrivateKey = ${SECRET_VPN1_PVK}
+          Address = ${SECRET_VPN1_ADDR}
+          DNS = ${SECRET_VPN1_DNS}
+
+          [Peer]
+          PublicKey = ${SECRET_VPN1_PUB}
+          AllowedIPs = 0.0.0.0/0,::0/0
+          Endpoint = ${SECRET_VPN1_END}
     resources:
       requests:
         memory: 100Mi
