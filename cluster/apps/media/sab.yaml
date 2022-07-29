@@ -51,10 +51,9 @@ spec:
         existingClaim: media
     resources:
       requests:
-        memory: 2Gi
-        cpu: 150Mi
+        memory: 3Gi
       limits:
-        memory: 2Gi
+        memory: 3Gi
     podSecurityContext:
       runAsUser: 1001
       runAsGroup: 1001
