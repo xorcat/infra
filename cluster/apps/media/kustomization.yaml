@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - plex.yaml
   - photos.yaml
+  - prowlarr.yaml
