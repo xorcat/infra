@@ -34,11 +34,12 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           traefik.ingress.kubernetes.io/router.middlewares: "networking-auth-local@kubernetescrd"
-        hosts:
+        rules:
           - host: "gold.${SECRET_INTERNAL_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
+            http:
+              paths:
+                - path: /
+                  pathType: Prefix
         tls:
           - hosts:
               - "gold.${SECRET_INTERNAL_DOMAIN}"
