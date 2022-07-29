@@ -5,3 +5,4 @@ resources:
   - plex.yaml
   - photos.yaml
   - prowlarr.yaml
+  - sab.yaml
