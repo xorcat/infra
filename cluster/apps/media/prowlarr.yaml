@@ -49,29 +49,6 @@ spec:
       media:
         enabled: true
         existingClaim: media
-    addons:
-      vpn:
-        enabled: true
-        # This Should be set to `wireguard`. This will set the add-on to use the default settings for Wireguard based connections.
-        type: wireguard
-        # If the podSecurityContext is set to run as a different user, make sure to run the Wireguard container as UID/GID 568.
-        # This is required for it to be able to read certain configuration files.
-        securityContext:
-          runAsUser: 568
-          runAsGroup: 568
-        env:
-          # Enable a killswitch that kills all trafic when the VPN is not connected
-          KILLSWITCH: "true"
-        configFile: |-
-          [Interface]
-          PrivateKey = ${SECRET_VPN1_PVK}
-          Address = ${SECRET_VPN1_ADDR}
-          DNS = ${SECRET_VPN1_DNS}
-
-          [Peer]
-          PublicKey = ${SECRET_VPN1_PUB}
-          AllowedIPs = 0.0.0.0/0,::0/0
-          Endpoint = ${SECRET_VPN1_END}
     resources:
       requests:
         memory: 100Mi
