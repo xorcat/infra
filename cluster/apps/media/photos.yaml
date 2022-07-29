@@ -19,9 +19,9 @@ spec:
     resources:
       requests:
         cpu: 3
-        memory: 3Gi
+        memory: 4Gi
       limits:
-        memory: 3Gi
+        memory: 4Gi
     env:
       TZ: "Australia/Brisbane"
       PHOTOPRISM_ORIGINALS_PATH: /photoprism/originals/
