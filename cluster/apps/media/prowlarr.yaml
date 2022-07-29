@@ -62,3 +62,7 @@ spec:
         scrapeTimeout: 2m
         labels:
           app.kubernetes.io/component: monitoring
+    podSecurityContext:
+      runAsUser: 1001
+      runAsGroup: 1001
+      fsGroup: 1001
