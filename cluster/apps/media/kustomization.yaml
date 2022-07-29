@@ -6,3 +6,4 @@ resources:
   - photos.yaml
   - prowlarr.yaml
   - sab.yaml
+  - radarr.yaml
