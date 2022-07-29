@@ -62,7 +62,8 @@ spec:
         env:
           # Enable a killswitch that kills all trafic when the VPN is not connected
           KILLSWITCH: "true"
-        configFile: "${SECRET_VPN_CONFIG}"
+        configFile: |-
+          ${SECRET_VPN_CONFIG}
     resources:
       requests:
         memory: 100Mi
