@@ -38,7 +38,7 @@ spec:
           - host: "gold.${SECRET_INTERNAL_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
+                type: Prefix
         tls:
           - hosts:
               - "gold.${SECRET_INTERNAL_DOMAIN}"
