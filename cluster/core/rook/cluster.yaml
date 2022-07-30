@@ -376,6 +376,28 @@ spec:
               metadataDevice: "sdf"
               osdsPerDevice: "1"
               deviceClass: "hdd"
+      - name: "w13-tbfg"
+        devices:
+          - name: "sdb"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
+          - name: "sdd"
+            config:
+              metadataDevice: "sdc"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+          - name: "sde"
+            config:
+              metadataDevice: "sdc"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+          - name: "sdf"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "2"
+              deviceClass: "ssd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
     onlyApplyOSDPlacement: false
   # The section for configuring management of daemon disruptions during upgrade or fencing.
