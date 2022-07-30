@@ -8,3 +8,4 @@ resources:
   - sab.yaml
   - radarr.yaml
   - sonarr.yaml
+  - overseerr.yaml
