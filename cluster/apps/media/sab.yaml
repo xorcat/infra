@@ -46,6 +46,14 @@ spec:
         accessMode: ReadWriteOnce
         annotations:
           helm.sh/resource-policy: "keep"
+      incomplete:
+        enabled: true
+        storageClass: unsafe-block
+        size: 1Ti
+        accessMode: ReadWriteOnce
+        mountPath: /media/usenet/incomplete
+        annotations:
+          helm.sh/resource-policy: "keep"
       media:
         enabled: true
         existingClaim: media
