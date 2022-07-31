@@ -34,7 +34,7 @@ spec:
   # The metadata service (mds) configuration
   metadataServer:
     # The number of active MDS instances
-    activeCount: 3
+    activeCount: 6
     # Whether each active MDS instance will have an active standby with a warm metadata cache for faster failover.
     # If false, standbys will be available, but will not have a warm cache.
     activeStandby: true
@@ -85,9 +85,9 @@ spec:
     resources:
     # The requests and limits set here, allow the filesystem MDS Pod(s) to use half of one CPU core and 1 gigabyte of memory
       limits:
-        cpu: "4"
+        cpu: "2"
         memory: "4Gi"
       requests:
-        cpu: "1"
-        memory: "4Gi"
+        cpu: 100m
+        memory: "1Gi"
     # priorityClassName: my-priority-class
