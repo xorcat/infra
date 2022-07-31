@@ -5,6 +5,7 @@ metadata:
   namespace: rook-ceph # namespace:cluster
 spec:
   failureDomain: osd
+  deviceClass: ssd
   replicated:
     size: 2
     # Disallow setting pool with replica 1, this could lead to data loss without recovery.
