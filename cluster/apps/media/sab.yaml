@@ -53,7 +53,7 @@ spec:
       requests:
         memory: 3Gi
       limits:
-        memory: 3Gi
+        memory: 10Gi
     podSecurityContext:
       runAsUser: 1001
       runAsGroup: 1001
