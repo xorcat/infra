@@ -355,8 +355,9 @@ spec:
         resources:
           requests:
             memory: 1.2Gi
+            cpu: 300m
           limits:
-            memory: 1.2Gi
+            memory: 3Gi
         devices:
           - name: "sdb"
             config:
