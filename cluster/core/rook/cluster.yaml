@@ -199,7 +199,7 @@ spec:
   resources:
     osd:
       requests:
-        cpu: 1
+        cpu: 700m
         memory: 3Gi
       limits:
         memory: 3Gi
