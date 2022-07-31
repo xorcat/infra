@@ -281,10 +281,10 @@ spec:
       - name: "w08-mini"
         resources:
           requests:
-            memory: 2Gi
-            cpu: 300m
+            memory: 2.5Gi
+            cpu: 400m
           limits:
-            memory: 2Gi
+            memory: 2.5Gi
         devices:
           - name: "sdb"
             config:
