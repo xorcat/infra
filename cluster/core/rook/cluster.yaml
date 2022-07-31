@@ -199,11 +199,13 @@ spec:
   resources:
     osd:
       requests:
-        memory: 3Gi
+        cpu: 400m
+        memory: 2Gi
       limits:
-        memory: 3Gi
+        memory: 4Gi
     mon:
       requests:
+        cpu: 1
         memory: 3Gi
       limits:
         memory: 3Gi
