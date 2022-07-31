@@ -1,7 +1,7 @@
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
-  name: unsafe-pool
+  name: unsafe-ssd-pool
   namespace: rook-ceph # namespace:cluster
 spec:
   failureDomain: osd
@@ -32,7 +32,7 @@ parameters:
   # used for the metadata of the images.
   # The erasure coded pool must be set as the `dataPool` parameter below.
   #dataPool: ec-data-pool
-  pool: unsafe-pool
+  pool: unsafe-ssd-pool
 
   # (optional) mapOptions is a comma-separated list of map options.
   # For krbd options refer
