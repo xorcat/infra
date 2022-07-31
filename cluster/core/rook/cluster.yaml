@@ -324,6 +324,12 @@ spec:
           #     deviceClass: "ssd"
           #     osdsPerDevice: "0"
       - name: "w10-nuca"
+        resources:
+          requests:
+            memory: 3Gi
+            cpu: 500m
+          limits:
+            memory: 3Gi
         devices:
           - name: "sdb"
             config:
