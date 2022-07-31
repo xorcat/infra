@@ -197,12 +197,6 @@ spec:
       release: prometheus-stack
   #    crashcollector:
   resources:
-    osd:
-      requests:
-        cpu: 350m
-        memory: 3Gi
-      limits:
-        memory: 3Gi
     mon:
       requests:
         cpu: 1
