@@ -38,6 +38,10 @@ spec:
     # Set the timezone of the plex server
     timezone: Australia/Brisbane
 
+    resources:
+      requests:
+        cpu: 1
+
     ingress:
       enabled: true
       ingressClassName: "traefik"
