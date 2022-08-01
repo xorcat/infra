@@ -209,7 +209,7 @@ spec:
   resources:
     osd:
       requests:
-        # cpu: 700m
+        cpu: 700m
         memory: 3Gi
       limits:
         memory: 3Gi
@@ -406,7 +406,7 @@ spec:
           - name: "sdb"
             config:
               metadataDevice: ""
-              osdsPerDevice: "2"
+              osdsPerDevice: "1"
               deviceClass: "ssd"
           - name: "sdd"
             config:
@@ -421,7 +421,7 @@ spec:
           - name: "sdf"
             config:
               metadataDevice: ""
-              osdsPerDevice: "2"
+              osdsPerDevice: "1"
               deviceClass: "ssd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
     onlyApplyOSDPlacement: false
