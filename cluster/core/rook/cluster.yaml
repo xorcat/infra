@@ -410,19 +410,19 @@ spec:
               deviceClass: "ssd"
           - name: "sdd"
             config:
-              metadataDevice: "sdc"
+              metadataDevice: ""
               osdsPerDevice: "1"
-              deviceClass: "hdd"
+              deviceClass: "ssd"
           - name: "sde"
             config:
-              metadataDevice: "sdc"
+              metadataDevice: "sda"
               osdsPerDevice: "1"
               deviceClass: "hdd"
           - name: "sdf"
             config:
-              metadataDevice: ""
+              metadataDevice: "sda"
               osdsPerDevice: "1"
-              deviceClass: "ssd"
+              deviceClass: "hdd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
     onlyApplyOSDPlacement: false
   # The section for configuring management of daemon disruptions during upgrade or fencing.
