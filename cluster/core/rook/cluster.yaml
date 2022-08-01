@@ -327,7 +327,7 @@ spec:
         resources:
           requests:
             memory: 3Gi
-            cpu: 500m
+            cpu: 400m
           limits:
             memory: 3Gi
         devices:
