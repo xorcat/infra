@@ -403,7 +403,7 @@ spec:
               deviceClass: "hdd"
       - name: "w13-tbfg"
         devices:
-          - name: "sdb"
+          - name: "sdc"
             config:
               metadataDevice: ""
               osdsPerDevice: "1"
@@ -415,12 +415,12 @@ spec:
               deviceClass: "ssd"
           - name: "sde"
             config:
-              metadataDevice: "sda"
+              metadataDevice: "sdb"
               osdsPerDevice: "1"
               deviceClass: "hdd"
           - name: "sdf"
             config:
-              metadataDevice: "sda"
+              metadataDevice: "sdb"
               osdsPerDevice: "1"
               deviceClass: "hdd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
