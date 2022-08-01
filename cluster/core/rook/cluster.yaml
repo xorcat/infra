@@ -410,17 +410,12 @@ spec:
               deviceClass: "ssd"
           - name: "sdd"
             config:
-              metadataDevice: ""
-              osdsPerDevice: "1"
-              deviceClass: "ssd"
-          - name: "sde"
-            config:
-              metadataDevice: "sdb"
+              metadataDevice: "sda"
               osdsPerDevice: "1"
               deviceClass: "hdd"
-          - name: "sdf"
+          - name: "sde"
             config:
-              metadataDevice: "sdb"
+              metadataDevice: "sda"
               osdsPerDevice: "1"
               deviceClass: "hdd"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
