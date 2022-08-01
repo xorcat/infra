@@ -59,6 +59,7 @@ spec:
         existingClaim: media
     resources:
       requests:
+        cpu: 1
         memory: 3Gi
       limits:
         memory: 10Gi

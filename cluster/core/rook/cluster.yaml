@@ -199,7 +199,7 @@ spec:
   resources:
     osd:
       requests:
-        cpu: 700m
+        # cpu: 700m
         memory: 3Gi
       limits:
         memory: 3Gi
@@ -282,7 +282,7 @@ spec:
         resources:
           requests:
             memory: 2.5Gi
-            cpu: 400m
+            # cpu: 400m
           limits:
             memory: 2.5Gi
         devices:
@@ -327,7 +327,7 @@ spec:
         resources:
           requests:
             memory: 3Gi
-            cpu: 400m
+            # cpu: 400m
           limits:
             memory: 3Gi
         devices:
@@ -367,7 +367,7 @@ spec:
         resources:
           requests:
             memory: 1.2Gi
-            cpu: 300m
+            # cpu: 300m
           limits:
             memory: 3Gi
         devices:
