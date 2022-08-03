@@ -376,8 +376,8 @@ spec:
       - name: "w12-qnap"
         resources:
           requests:
-            memory: 1.2Gi
-            cpu: 400m
+            memory: 1.5Gi
+            cpu: 800m
           limits:
             memory: 3Gi
         devices:
