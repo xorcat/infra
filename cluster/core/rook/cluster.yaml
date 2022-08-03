@@ -377,28 +377,23 @@ spec:
         resources:
           requests:
             memory: 1.2Gi
-            # cpu: 300m
+            cpu: 400m
           limits:
             memory: 3Gi
         devices:
           - name: "sdb"
             config:
-              metadataDevice: ""
+              metadataDevice: "sde"
               osdsPerDevice: "1"
-              deviceClass: "ssd"
+              deviceClass: "hdd"
           - name: "sdc"
             config:
-              metadataDevice: "sdf"
+              metadataDevice: "sde"
               osdsPerDevice: "1"
               deviceClass: "hdd"
           - name: "sdd"
             config:
-              metadataDevice: "sdf"
-              osdsPerDevice: "1"
-              deviceClass: "hdd"
-          - name: "sde"
-            config:
-              metadataDevice: "sdf"
+              metadataDevice: "sde"
               osdsPerDevice: "1"
               deviceClass: "hdd"
       - name: "w13-tbfg"
