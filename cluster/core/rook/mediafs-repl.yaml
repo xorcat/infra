@@ -40,7 +40,14 @@ spec:
     activeStandby: true
     # The affinity rules to apply to the mds deployment
     placement:
-      #  nodeAffinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: role
+                  operator: NotIn
+                  values:
+                    - no-ceph-mds
       #    requiredDuringSchedulingIgnoredDuringExecution:
       #      nodeSelectorTerms:
       #      - matchExpressions:
