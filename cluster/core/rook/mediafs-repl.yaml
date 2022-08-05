@@ -60,7 +60,7 @@ spec:
       #  - key: mds-node
       #    operator: Exists
       #  podAffinity:
-      podAntiAffinity:
+      # podAntiAffinity:
         # requiredDuringSchedulingIgnoredDuringExecution:
         #   - labelSelector:
         #       matchExpressions:
