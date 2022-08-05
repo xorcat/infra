@@ -38,9 +38,9 @@ spec:
     # Set the timezone of the plex server
     timezone: Australia/Brisbane
 
-    resources:
-      requests:
-        cpu: 1400m 
+    # resources:
+      # requests:
+        # cpu: 1400m 
 
     ingress:
       enabled: true
