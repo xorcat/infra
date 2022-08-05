@@ -273,7 +273,7 @@ spec:
         resources:
           requests:
             memory: 2.5Gi
-            cpu: 700m
+            cpu: 400m
           limits:
             memory: 2.5Gi
         devices:
