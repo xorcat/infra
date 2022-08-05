@@ -8,7 +8,7 @@ apiVersion: ceph.rook.io/v1
 kind: CephFilesystem
 metadata:
   name: mediafs
-  namespace: rook-ceph  # namespace:cluster
+  namespace: rook-ceph # namespace:cluster
 spec:
   # The metadata pool spec
   metadataPool:
@@ -47,7 +47,7 @@ spec:
                 - key: role
                   operator: NotIn
                   values:
-                    - no-ceph-mds
+                    - slow-node
       #    requiredDuringSchedulingIgnoredDuringExecution:
       #      nodeSelectorTerms:
       #      - matchExpressions:
@@ -70,19 +70,19 @@ spec:
         #             - rook-ceph-mds
         #     # topologyKey: kubernetes.io/hostname will place MDS across different hosts
         #     topologyKey: kubernetes.io/hostname
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                  - key: app
-                    operator: In
-                    values:
-                      - rook-ceph-mds
-              # topologyKey: */zone can be used to spread MDS across different AZ
-              # Use <topologyKey: failure-domain.beta.kubernetes.io/zone> in k8s cluster if your cluster is v1.16 or lower
-              # Use <topologyKey: topology.kubernetes.io/zone>  in k8s cluster is v1.17 or upper
-              topologyKey: kubernetes.io/hostname
+        # preferredDuringSchedulingIgnoredDuringExecution:
+        #   - weight: 100
+        #     podAffinityTerm:
+        #       labelSelector:
+        #         matchExpressions:
+        #           - key: app
+        #             operator: In
+        #             values:
+        #               - rook-ceph-mds
+        #       # topologyKey: */zone can be used to spread MDS across different AZ
+        #       # Use <topologyKey: failure-domain.beta.kubernetes.io/zone> in k8s cluster if your cluster is v1.16 or lower
+        #       # Use <topologyKey: topology.kubernetes.io/zone>  in k8s cluster is v1.17 or upper
+        #       topologyKey: kubernetes.io/hostname
     # A key/value list of annotations
     annotations:
     #  key: value
@@ -90,7 +90,7 @@ spec:
     labels:
     #  key: value
     resources:
-    # The requests and limits set here, allow the filesystem MDS Pod(s) to use half of one CPU core and 1 gigabyte of memory
+      # The requests and limits set here, allow the filesystem MDS Pod(s) to use half of one CPU core and 1 gigabyte of memory
       limits:
         cpu: "2"
         memory: "4Gi"

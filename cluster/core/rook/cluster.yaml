@@ -155,7 +155,7 @@ spec:
                 - key: role
                   operator: NotIn
                   values:
-                    - no-ceph-mon
+                    - slow-node
   #  placement:
   #    all:
   #      nodeAffinity:
