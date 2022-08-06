@@ -10,3 +10,4 @@ resources:
   - radarr.yaml
   - sonarr.yaml
   - overseerr.yaml
+  - tautulli.yaml
