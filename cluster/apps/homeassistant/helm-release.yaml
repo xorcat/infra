@@ -20,6 +20,16 @@ spec:
     image:
       repository: homeassistant/home-assistant
       tag: 2022.8.1
+    initContainers:
+      test-db:
+        name: test-db
+        image: busybox:1.31
+        command:
+          [
+            "sh",
+            "-c",
+            'echo -e "Checking for the availability of postgresql deployment"; while ! nc -z homeassistant-postgresql.homeassistant.svc 5432; do sleep 1; printf "-"; done; echo -e "  >> Postgres DB Server has started";',
+          ]
     env:
       TZ: "Australia/Brisbane"
     ingress:
