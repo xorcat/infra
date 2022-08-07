@@ -17,3 +17,4 @@ resources:
   - rgw.yaml
   - buckets.yaml
   - dash-ingress.yaml
+  - s3-ingress.yaml
