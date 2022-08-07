@@ -1,0 +1,49 @@
+---
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStore
+metadata:
+  name: general-s3
+  namespace: rook-ceph
+spec:
+  metadataPool:
+    failureDomain: host
+    replicated:
+      size: 3
+  dataPool:
+    failureDomain: host
+    replicated:
+      size: 3
+  preservePoolsOnDelete: true
+  gateway:
+    # sslCertificateRef: s3-wildcard-tls
+    # caBundleRef:
+    port: 80
+    # securePort: 443
+    instances: 2
+    # A key/value list of annotations
+    # annotations:
+    #  key: value
+    # placement:
+    #  nodeAffinity:
+    #    requiredDuringSchedulingIgnoredDuringExecution:
+    #      nodeSelectorTerms:
+    #      - matchExpressions:
+    #        - key: role
+    #          operator: In
+    #          values:
+    #          - rgw-node
+    #  tolerations:
+    #  - key: rgw-node
+    #    operator: Exists
+    #  podAffinity:
+    #  podAntiAffinity:
+    #  topologySpreadConstraints:
+    # resources:
+    #  limits:
+    #    cpu: "500m"
+    #    memory: "1024Mi"
+    #  requests:
+    #    cpu: "500m"
+    #    memory: "1024Mi"
+  #zone:
+  #name: zone-a
