@@ -15,9 +15,20 @@ spec:
   tls:
     - hosts:
         - "s3.${SECRET_DOMAIN}"
+        - "*.s3.${SECRET_DOMAIN}"
       secretName: "s3-tls"
   rules:
     - host: "s3.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rook-ceph-rgw-general-s3
+                port:
+                  name: http
+    - host: "*.s3.${SECRET_DOMAIN}"
       http:
         paths:
           - path: /
