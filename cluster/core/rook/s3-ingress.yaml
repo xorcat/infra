@@ -7,6 +7,9 @@ metadata:
     # cert-manager.io/cluster-issuer: "letsencrypt-production"
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
     traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+    external-dns.alpha.kubernetes.io/target: "home.${SECRET_DOMAIN}"
+    external-dns.alpha.kubernetes.io/hostname: "s3.${SECRET_DOMAIN}"
+    external-dns/is-public: "true"
 spec:
   ingressClassName: "traefik"
   tls:
