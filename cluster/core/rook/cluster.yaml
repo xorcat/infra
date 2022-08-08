@@ -210,9 +210,9 @@ spec:
     osd:
       requests:
         cpu: 700m
-        memory: 4Gi
+        memory: 3Gi
       limits:
-        memory: 4Gi
+        memory: 3Gi
     mon:
       requests:
         cpu: 1
