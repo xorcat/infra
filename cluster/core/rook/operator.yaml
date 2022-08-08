@@ -461,6 +461,15 @@ spec:
       labels:
         app: rook-ceph-operator
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: role
+                    operator: NotIn
+                    values:
+                      - slow-node
       serviceAccountName: rook-ceph-system
       containers:
         - name: rook-ceph-operator
