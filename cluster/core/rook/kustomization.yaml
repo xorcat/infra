@@ -14,7 +14,7 @@ resources:
   - storageclass-unsafe.yaml
   - storageclass-slow-block.yaml
   - api-ingress.yaml
-  - rgw.yaml
-  - buckets.yaml
+  # - rgw.yaml
+  # - buckets.yaml
   - dash-ingress.yaml
   - s3-ingress.yaml

@@ -1,0 +1,15 @@
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStoreUser
+metadata:
+  name: obj-user-xorcat
+  namespace: rook-ceph
+spec:
+  store: general-s3
+  displayName: xorcat
+  quotas:
+    maxBuckets: 1000
+    maxSize: 10000G
+    maxObjects: 1000000
+  capabilities:
+    user: "*"
+    bucket: "*"
