@@ -263,6 +263,12 @@ spec:
     # nodes below will be used as storage resources.  Each node's 'name' field should match their 'kubernetes.io/hostname' label.
     nodes:
       - name: "w06-evrs"
+        resources:
+          requests:
+            memory: 6Gi
+            cpu: 2
+          limits:
+            memory: 6Gi
         devices:
           - name: "sda"
             config:
@@ -293,6 +299,12 @@ spec:
           #     osdsPerDevice: "1"
           #     deviceClass: "hdd"
       - name: "w09-desk"
+        resources:
+          requests:
+            memory: 3Gi
+            cpu: 1500m
+          limits:
+            memory: 3Gi
         devices:
           - name: "sdb"
             config:
