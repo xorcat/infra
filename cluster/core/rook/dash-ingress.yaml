@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rook-dashboard
+  name: rook-ceph-mgr-dashboard
   namespace: rook-ceph
   labels:
     app: rook-ceph-mgr
     rook_cluster: rook-ceph
 spec:
   ports:
-    - name: dashboard
+    - name: http-dashboard
       port: 8888
       protocol: TCP
       targetPort: 8888
