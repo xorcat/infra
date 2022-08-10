@@ -62,6 +62,29 @@
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch"]
     },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor"],
+      "labels": ["renovate/image", "dep/minor"],
+      "matchPackageNames": ["plexinc/pms-docker"],
+      "versioning": "loose"
+      "automerge": true
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "labels": ["renovate/image", "dep/major"],
+      "matchPackageNames": ["plexinc/pms-docker"],
+      "versioning": "loose"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["patch"],
+      "labels": ["renovate/image", "dep/patch"],
+      "matchPackageNames": ["plexinc/pms-docker"],
+      "versioning": "loose"
+      "automerge": true
+    },
     // add labels according to package and update types
     {
       "matchDatasources": ["docker"],
