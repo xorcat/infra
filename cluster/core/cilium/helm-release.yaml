@@ -17,8 +17,9 @@ spec:
   values:
     upgradeCompatibility: '1.11'
     resources:
-      cpu: 500m
-      memory: 100Mi
+      requests:
+        cpu: 500m
+        memory: 100Mi
     ipam:
       mode: kubernetes
     hubble:
