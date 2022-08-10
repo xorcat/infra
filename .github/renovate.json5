@@ -64,26 +64,8 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor"],
-      "labels": ["renovate/image", "dep/minor"],
-      "matchPackageNames": ["plexinc/pms-docker"],
-      "versioning": "loose",
-      "automerge": true
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major"],
-      "labels": ["renovate/image", "dep/major"],
-      "matchPackageNames": ["plexinc/pms-docker"],
-      "versioning": "loose"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"],
-      "labels": ["renovate/image", "dep/patch"],
-      "matchPackageNames": ["plexinc/pms-docker"],
-      "versioning": "loose",
-      "automerge": true
+      "labels": ["renovate/image", "plex"],
+      "matchPackageNames": ["plexinc/pms-docker"]
     },
     // add labels according to package and update types
     {
