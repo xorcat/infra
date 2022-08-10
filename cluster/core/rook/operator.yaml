@@ -587,13 +587,12 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
           # Recommended resource requests and limits, if desired
-          #resources:
-          #  limits:
-          #    cpu: 500m
-          #    memory: 512Mi
-          #  requests:
-          #    cpu: 100m
-          #    memory: 128Mi
+          resources:
+            limits:
+              memory: 3Gi
+            requests:
+              cpu: 1
+              memory: 3Gi
 
           #  Uncomment it to run lib bucket provisioner in multithreaded mode
           #- name: LIB_BUCKET_PROVISIONER_THREADS
