@@ -334,27 +334,22 @@ spec:
           limits:
             memory: 3Gi
         devices:
-          - name: "sdb"
+          - name: "sdc"
             config:
-              metadataDevice: ""
-              osdsPerDevice: "2"
-              deviceClass: "ssd"
+              metadataDevice: "sdb"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+          - name: "sdd"
+            config:
+              metadataDevice: "sdb"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
           - name: "sde"
             config:
-              metadataDevice: "sdd"
-              osdsPerDevice: "1"
-              deviceClass: "hdd"
-          - name: "sdf"
-            config:
-              metadataDevice: "sdc"
-              osdsPerDevice: "1"
-              deviceClass: "hdd"
-          - name: "sdg"
-            config:
               metadataDevice: ""
               osdsPerDevice: "2"
               deviceClass: "ssd"
-          - name: "sdh"
+          - name: "sdf"
             config:
               metadataDevice: ""
               osdsPerDevice: "2"
