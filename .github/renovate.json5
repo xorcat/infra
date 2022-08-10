@@ -67,7 +67,7 @@
       "matchUpdateTypes": ["minor"],
       "labels": ["renovate/image", "dep/minor"],
       "matchPackageNames": ["plexinc/pms-docker"],
-      "versioning": "loose"
+      "versioning": "loose",
       "automerge": true
     },
     {
@@ -82,7 +82,7 @@
       "matchUpdateTypes": ["patch"],
       "labels": ["renovate/image", "dep/patch"],
       "matchPackageNames": ["plexinc/pms-docker"],
-      "versioning": "loose"
+      "versioning": "loose",
       "automerge": true
     },
     // add labels according to package and update types
