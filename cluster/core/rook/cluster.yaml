@@ -373,10 +373,10 @@ spec:
       - name: "w12-qnap"
         resources:
           requests:
-            memory: 1.5Gi
-            cpu: 600m
+            memory: 1.9Gi
+            cpu: 800m
           limits:
-            memory: 3Gi
+            memory: 1.9Gi
         devices:
           - name: "sdb"
             config:
