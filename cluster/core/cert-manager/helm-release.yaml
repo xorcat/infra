@@ -22,6 +22,15 @@ spec:
     remediation:
       retries: 3
   values:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: role
+                  operator: NotIn
+                  values:
+                    - slow-node
     prometheus:
       enabled: true
       servicemonitor:
