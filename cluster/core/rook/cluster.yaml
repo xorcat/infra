@@ -319,17 +319,17 @@ spec:
             config:
               osdsPerDevice: "1"
               deviceClass: "hdd"
-              metadataDevice: "sde"
+              metadataDevice: "sdd"
           - name: "sdc"
             config:
               osdsPerDevice: "1"
               deviceClass: "hdd"
-              metadataDevice: "sde"
-          - name: "sdd"
-            config:
-              osdsPerDevice: "1"
-              deviceClass: "hdd"
-              metadataDevice: "sde"
+              metadataDevice: "sdd"
+          # - name: "sdd"
+          #   config:
+          #     osdsPerDevice: "1"
+          #     deviceClass: "hdd"
+          #     metadataDevice: "sde"
           # - name: "sde"
           #   config:
           #     metadataDevice: ""
