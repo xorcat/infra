@@ -287,10 +287,10 @@ spec:
       - name: "w08-mini"
         resources:
           requests:
-            memory: 5.3Gi
+            memory: 5300Mi
             cpu: 1400m
           limits:
-            memory: 5.3Gi
+            memory: 5300Mi
         devices:
           - name: "sdb"
             config:
@@ -373,24 +373,19 @@ spec:
       - name: "w12-qnap"
         resources:
           requests:
-            memory: 1.8Gi
+            memory: 1700Mi
             cpu: 800m
           limits:
-            memory: 1.8Gi
+            memory: 1700Mi
         devices:
           - name: "sdb"
             config:
-              metadataDevice: "sde"
+              metadataDevice: "sdd"
               osdsPerDevice: "1"
               deviceClass: "hdd"
           - name: "sdc"
             config:
-              metadataDevice: "sde"
-              osdsPerDevice: "1"
-              deviceClass: "hdd"
-          - name: "sdd"
-            config:
-              metadataDevice: "sde"
+              metadataDevice: "sdd"
               osdsPerDevice: "1"
               deviceClass: "hdd"
       - name: "w13-tbfg"
