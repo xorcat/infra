@@ -339,29 +339,34 @@ spec:
         resources:
           requests:
             memory: 3Gi
-            # cpu: 400m
+            cpu: 700m
           limits:
             memory: 3Gi
         devices:
+          - name: "sdb"
+            config:
+              metadataDevice: ""
+              osdsPerDevice: "1"
+              deviceClass: "ssd"
           - name: "sdc"
             config:
-              metadataDevice: "sdb"
+              metadataDevice: "sdg"
               osdsPerDevice: "1"
               deviceClass: "hdd"
           - name: "sdd"
             config:
-              metadataDevice: "sdb"
+              metadataDevice: "sdg"
               osdsPerDevice: "1"
               deviceClass: "hdd"
           - name: "sde"
             config:
-              metadataDevice: ""
-              osdsPerDevice: "2"
-              deviceClass: "ssd"
+              metadataDevice: "sdg"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
           - name: "sdf"
             config:
               metadataDevice: ""
-              osdsPerDevice: "2"
+              osdsPerDevice: "1"
               deviceClass: "ssd"
       - name: "w11-dxps"
         devices:
