@@ -21,7 +21,7 @@ spec:
     - name: repl
       # deviceClass: hdd
       replicated:
-        size: 3
+        size: 2
       # Inline compression mode for the data pool
       parameters:
         compression_mode: none
