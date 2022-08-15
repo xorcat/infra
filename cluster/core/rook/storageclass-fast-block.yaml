@@ -27,7 +27,7 @@ spec:
   erasureCoded:
     dataChunks: 2
     codingChunks: 2
-  deviceClass: ssd
+  # deviceClass: ssd
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
