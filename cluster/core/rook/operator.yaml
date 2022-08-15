@@ -589,10 +589,10 @@ spec:
           # Recommended resource requests and limits, if desired
           resources:
             limits:
-              memory: 5Gi
+              memory: 3Gi
             requests:
-              cpu: 1500m
-              memory: 5Gi
+              cpu: 1200m
+              memory: 3Gi
 
           #  Uncomment it to run lib bucket provisioner in multithreaded mode
           #- name: LIB_BUCKET_PROVISIONER_THREADS
