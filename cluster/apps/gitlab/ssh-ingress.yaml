@@ -7,7 +7,6 @@ metadata:
 spec:
   entryPoints:
     - ssh
-  ingressClassName: "traefik"
   routes:
     - match: HostSNI(`*`)
       services:
