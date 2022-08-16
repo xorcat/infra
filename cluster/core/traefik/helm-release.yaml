@@ -78,6 +78,9 @@ spec:
         port: 22222
         expose: true
         exposedPort: 22
+        protocol: TCP
+        tls:
+          enabled: false
       web:
         redirectTo: websecure
       websecure:
