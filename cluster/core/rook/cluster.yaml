@@ -395,17 +395,22 @@ spec:
               deviceClass: "hdd"
       - name: "w13-tbfg"
         devices:
-          - name: "sdc"
+          - name: "sdb"
             config:
               metadataDevice: ""
               osdsPerDevice: "1"
               deviceClass: "ssd"
+          - name: "sdc"
+            config:
+              metadataDevice: "sda"
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
           - name: "sdd"
             config:
               metadataDevice: "sda"
               osdsPerDevice: "1"
               deviceClass: "hdd"
-          - name: "sde"
+          - name: "sdf"
             config:
               metadataDevice: "sda"
               osdsPerDevice: "1"
