@@ -43,10 +43,17 @@ spec:
         enabled: true
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/target: "home.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/hostname: "photos.${SECRET_DOMAIN}."
+          external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+          traefik.ingress.kubernetes.io/router.middlewares: "networking-trusted-only@kubernetescrd"
         hosts:
           - host: "photos.${SECRET_INTERNAL_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+          - host: "photos.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -54,6 +61,7 @@ spec:
           - secretName: photoprism-tls
             hosts:
               - "photos.${SECRET_INTERNAL_DOMAIN}"
+              - "photos.${SECRET_DOMAIN}"
     persistence:
       config:
         enabled: true
