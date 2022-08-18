@@ -29,16 +29,30 @@ metadata:
     hajimari.io/appName: "rook-dashboard"
     hajimari.io/enable: "true"
     hajimari.io/icon: "web"
+    external-dns.alpha.kubernetes.io/target: "home.${SECRET_DOMAIN}"
+    external-dns.alpha.kubernetes.io/hostname: "storage.${SECRET_DOMAIN}."
+    external-dns/is-public: "true"
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-    traefik.ingress.kubernetes.io/router.middlewares: "networking-internal-only@kubernetescrd"
+    traefik.ingress.kubernetes.io/router.middlewares: "networking-trusted-only@kubernetescrd"
 spec:
   ingressClassName: "traefik"
   tls:
     - hosts:
         - "rook.${SECRET_INTERNAL_DOMAIN}"
+        - "storage.${SECRET_DOMAIN}"
       secretName: "rook-dashboard-tls"
   rules:
     - host: "rook.${SECRET_INTERNAL_DOMAIN}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rook-ceph-mgr-dashboard
+                port:
+                  name: http-dashboard
+    - host: "storage.${SECRET_DOMAIN}"
       http:
         paths:
           - path: /
