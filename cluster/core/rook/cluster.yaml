@@ -35,9 +35,9 @@ spec:
   # This means Ceph's status could be degraded and we don't recommend upgrading but you might decide otherwise
   # Use at your OWN risk
   # To understand Rook's upgrade process of Ceph, read https://rook.io/docs/rook/latest/ceph-upgrade.html#ceph-version-upgrades
-  skipUpgradeChecks: false
+  skipUpgradeChecks: true
   # Whether or not continue if PGs are not clean during an upgrade
-  continueUpgradeAfterChecksEvenIfNotHealthy: false
+  continueUpgradeAfterChecksEvenIfNotHealthy: true
   # WaitTimeoutForHealthyOSDInMinutes defines the time (in minutes) the operator would wait before an OSD can be stopped for upgrade or restart.
   # If the timeout exceeds and OSD is not ok to stop, then the operator would skip upgrade for the current OSD and proceed with the next one
   # if `continueUpgradeAfterChecksEvenIfNotHealthy` is `false`. If `continueUpgradeAfterChecksEvenIfNotHealthy` is `true`, then opertor would
