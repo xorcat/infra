@@ -71,4 +71,4 @@ spec:
         subPath: media
       config:
         accessMode: ReadWriteOnce
-        claimName: plex-config
+        size: 50Gi
