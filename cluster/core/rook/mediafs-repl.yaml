@@ -12,7 +12,7 @@ metadata:
 spec:
   # The metadata pool spec
   metadataPool:
-    deviceClass: ssd
+    # deviceClass: ssd
     replicated:
       # You need at least three OSDs on different nodes for this config to work
       size: 3
