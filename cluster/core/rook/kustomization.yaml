@@ -13,6 +13,7 @@ resources:
   - mediafs-repl.yaml
   - storageclass-unsafe.yaml
   - storageclass-slow-block.yaml
+  - storageclass-standard.yaml
   - api-ingress.yaml
   # - rgw.yaml
   # - buckets.yaml
