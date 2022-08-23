@@ -11,3 +11,12 @@ resources:
   - sonarr.yaml
   - overseerr.yaml
   - tautulli.yaml
+  - recyclarr-cron.yaml
+configMapGenerator:
+  - name: recyclarr
+    files:
+      - recyclarr-config.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
