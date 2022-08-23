@@ -66,7 +66,7 @@ spec:
       config:
         enabled: true
         mountPath: /photoprism/storage
-        storageClass: block
+        storageClass: standard
         size: 200Gi
         accessMode: ReadWriteOnce
         annotations:
@@ -74,7 +74,7 @@ spec:
       media:
         enabled: true
         mountPath: /photoprism/originals
-        storageClass: block
+        storageClass: standard
         size: 2Ti
         accessMode: ReadWriteOnce
         annotations:
@@ -96,7 +96,7 @@ spec:
       primary:
         persistence:
           enabled: true
-          storageClass: block
+          storageClass: standard
           size: 20Gi
           annotations:
             helm.sh/resource-policy: "keep"

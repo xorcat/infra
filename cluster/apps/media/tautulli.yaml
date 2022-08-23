@@ -56,7 +56,7 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: block
+        storageClass: standard
         size: 5Gi
         accessMode: ReadWriteOnce
         annotations:
