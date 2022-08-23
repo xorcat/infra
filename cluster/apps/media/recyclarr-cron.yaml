@@ -23,7 +23,7 @@ spec:
                 - "/bin/bash"
                 - -c
               args:
-                - "envsubst < /config/recyclarr.yaml > /shared/recyclarr.yaml"
+                - "envsubst < /config/recyclarr-config.yaml > /shared/recyclarr.yaml"
               volumeMounts:
                 - name: config
                   mountPath: /config
