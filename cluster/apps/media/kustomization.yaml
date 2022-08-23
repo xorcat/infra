@@ -12,6 +12,7 @@ resources:
   - overseerr.yaml
   - tautulli.yaml
   - recyclarr-cron.yaml
+  - secret.sops.yaml
 configMapGenerator:
   - name: recyclarr
     namespace: media
