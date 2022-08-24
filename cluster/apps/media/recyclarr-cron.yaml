@@ -36,7 +36,7 @@ spec:
                 - name: TZ
                   value: "Australia/Brisbane"
               command:
-                - /app/recyclarr
+                - /app/recyclarr/recyclarr
               args:
                 - sonarr
                 - --config
@@ -52,7 +52,7 @@ spec:
                 - name: TZ
                   value: "Australia/Brisbane"
               command:
-                - /app/recyclarr
+                - /app/recyclarr/recyclarr
               args:
                 - radarr
                 - --config
