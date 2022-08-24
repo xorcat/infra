@@ -26,9 +26,7 @@ sonarr:
           - EBC725268D687D588A20CBC5F97E538B # Low Quality Groups
           - 1B018E0C53EC825085DD911102E2CA36 # Release Sources (Streaming Service)
           - 71899E6C303A07AF0E4746EFF9873532 # P2P Groups + Repack/Proper
-          - cec8880b847dd5d31d29167ee0112b57 # Golden rule
-          - bc7a6383cbe88c3ee2d6396e1aacc0b3 # Prefer HDR
-          - fa47da3377076d82d07c4e95b3f13d07 # Prefer DoVi
+          - 76e060895c5b8a765c310933da0a5357 # Optionals
       # Anime (Uncomment below if you want it)
 #      - trash_ids:
 #          - d428eda85af1df8904b4bbe4fc2f537c # Anime - First release profile
