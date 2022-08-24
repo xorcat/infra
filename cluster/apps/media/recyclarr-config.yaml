@@ -96,7 +96,7 @@ radarr:
         # updated with scores from the guide for each custom format. Without this, custom formats
         # are synced to Radarr but no scores are set in any quality profiles.
         quality_profiles:
-          - name: Any
+          - name: MyAny
           - name: Ultra-HD
           - name: HD-1080p
 #          - name: Quality Profile 2
