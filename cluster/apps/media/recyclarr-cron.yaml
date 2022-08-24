@@ -15,12 +15,12 @@ spec:
           restartPolicy: OnFailure
           initContainers:
             - name: render-configs
-              image: bhgedigital/envsubst:latest
+              image: ghcr.io/onedr0p/recyclarr:2.3.1
               envFrom:
                 - secretRef:
                     name: *app
               command:
-                - "/bin/sh"
+                - "/bin/bash"
                 - -c
               args:
                 - "envsubst < /config/recyclarr-config.yaml > /shared/recyclarr.yaml"
