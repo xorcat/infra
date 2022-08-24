@@ -92,12 +92,13 @@ radarr:
           - 26fa26253af4001701fedb56cec376dc # HQ-WEBDL
           - 403f3f6266b90439cacc1e07cae4dc2d # HQ-Remux
           - 1c7d7b04b15cc53ea61204bebbcc1ee2 # HQ
-
         # Uncomment the below properties to specify one or more quality profiles that should be
         # updated with scores from the guide for each custom format. Without this, custom formats
         # are synced to Radarr but no scores are set in any quality profiles.
-#        quality_profiles:
-#          - name: Quality Profile 1
+        quality_profiles:
+          - name: Any
+          - name: Ultra-HD
+          - name: HD-1080p
 #          - name: Quality Profile 2
 #            #score: -9999 # Optional score to assign to all CFs. Overrides scores in the guide.
 #            #reset_unmatched_scores: true # Optionally set other scores to 0 if they are not listed in 'names' above.
