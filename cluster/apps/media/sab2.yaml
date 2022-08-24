@@ -38,6 +38,18 @@ spec:
           - hosts:
               - "sab2.arr.${SECRET_INTERNAL_DOMAIN}"
             secretName: sab2-tls
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - sabnzbd
+                    - sabnzbd2
+            topologyKey: kubernetes.io/hostname
+          weight: 100
     persistence:
       config:
         enabled: true

@@ -60,6 +60,19 @@ spec:
             - "plex.${SECRET_DOMAIN}"
             - "plex.${SECRET_INTERNAL_DOMAIN}"
           secretName: "plex-pub-tls"
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: app.kubernetes.io/name
+                    operator: In
+                    values:
+                      - sabnzbd
+                      - sabnzbd2
+              topologyKey: kubernetes.io/hostname
+            weight: 100
     persistence:
       transcode:
         enabled: true
