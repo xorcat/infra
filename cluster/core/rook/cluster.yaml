@@ -274,12 +274,17 @@ spec:
       - name: "w06-evrs"
         resources:
           requests:
-            memory: 6Gi
-            cpu: 2
+            memory: 4Gi
+            cpu: 1
           limits:
-            memory: 6Gi
+            memory: 4Gi
         devices:
           - name: "sda"
+            config:
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+              metadataDevice: "nvme0n1"
+          - name: "sdb"
             config:
               osdsPerDevice: "1"
               deviceClass: "hdd"
