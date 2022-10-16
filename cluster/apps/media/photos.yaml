@@ -87,6 +87,10 @@ spec:
         accessMode: ReadWriteOnce
     mariadb:
       enabled: true
+      image:
+        registry: ghcr.io
+        repository: zcube/bitnami-compat/mariadb
+        tag: 10.8.5
       architecture: standalone
       auth:
         database: photoprism
