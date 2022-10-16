@@ -425,6 +425,24 @@ spec:
               metadataDevice: "sda"
               osdsPerDevice: "1"
               deviceClass: "hdd"
+      - name: "w14-studio"
+        resources:
+          requests:
+            memory: 5500Mi
+            cpu: 1500m
+          limits:
+            memory: 5500Mi
+        devices:
+          - name: "sdd"
+            config:
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+              metadataDevice: "nvme0n1"
+          - name: "sde"
+            config:
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+              metadataDevice: "nvme0n1"
     # when onlyApplyOSDPlacement is false, will merge both placement.All() and placement.osd
     onlyApplyOSDPlacement: false
   # The section for configuring management of daemon disruptions during upgrade or fencing.
