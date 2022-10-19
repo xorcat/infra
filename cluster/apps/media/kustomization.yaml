@@ -14,12 +14,17 @@ resources:
   - overseerr.yaml
   - tautulli.yaml
   - recyclarr-cron.yaml
+  - recyclarruhd-cron.yaml
   - secret.sops.yaml
 configMapGenerator:
   - name: recyclarr
     namespace: media
     files:
       - recyclarr-config.yaml
+  - name: recyclarruhd
+    namespace: media
+    files:
+      - recyclarruhd-config.yaml
 generatorOptions:
   disableNameSuffixHash: true
   annotations:
