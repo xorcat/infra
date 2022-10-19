@@ -9,6 +9,8 @@ resources:
   - sab2.yaml
   - radarr.yaml
   - sonarr.yaml
+  - radarr-uhd.yaml
+  - sonarr-uhd.yaml
   - overseerr.yaml
   - tautulli.yaml
   - recyclarr-cron.yaml
