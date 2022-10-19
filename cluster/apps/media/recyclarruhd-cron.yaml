@@ -18,7 +18,7 @@ spec:
               image: ghcr.io/onedr0p/recyclarr:2.3.1
               envFrom:
                 - secretRef:
-                    name: *app
+                    name: recyclarr
               command:
                 - "/bin/bash"
                 - -c
