@@ -433,7 +433,12 @@ spec:
           limits:
             memory: 5500Mi
         devices:
-          - name: "sdd"
+          - name: "sda"
+            config:
+              osdsPerDevice: "1"
+              deviceClass: "hdd"
+              metadataDevice: "nvme0n1"
+          - name: "sdb"
             config:
               osdsPerDevice: "1"
               deviceClass: "hdd"
