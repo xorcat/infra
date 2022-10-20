@@ -37,7 +37,7 @@ spec:
         tls:
           - hosts:
               - "son-uhd.arr.${SECRET_INTERNAL_DOMAIN}"
-            secretName: sonarr-uhd-tls
+            secretName: sonarruhd-tls
     persistence:
       config:
         enabled: true

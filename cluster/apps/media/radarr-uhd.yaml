@@ -37,7 +37,7 @@ spec:
         tls:
           - hosts:
               - "rad-uhd.arr.${SECRET_INTERNAL_DOMAIN}"
-            secretName: radarr-uhd-tls
+            secretName: radarruhd-tls
     persistence:
       config:
         enabled: true
