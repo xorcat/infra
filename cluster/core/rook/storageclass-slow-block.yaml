@@ -33,8 +33,8 @@ parameters:
   # You need to specify the replicated pool here in the `pool` parameter, it is
   # used for the metadata of the images.
   # The erasure coded pool must be set as the `dataPool` parameter below.
-  # dataPool: slow-repl-pool
-  pool: slow-repl-pool
+  dataPool: slow-repl-pool
+  pool: replicated-metadata-pool-block
 
   # (optional) mapOptions is a comma-separated list of map options.
   # For krbd options refer
