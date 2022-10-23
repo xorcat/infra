@@ -26,6 +26,8 @@ spec:
     remediation:
       retries: 3
   values:
+    rbac:
+      enabled: true
     deployment:
       kind: Deployment
       replicas: 2
