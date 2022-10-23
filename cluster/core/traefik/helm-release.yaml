@@ -27,7 +27,7 @@ spec:
       retries: 3
   values:
     rbac:
-      enabled: true
+      enabled: false
     deployment:
       kind: Deployment
       replicas: 2
