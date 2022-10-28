@@ -386,7 +386,7 @@ spec:
             memory: 1700Mi
             cpu: 800m
           limits:
-            memory: 1700Mi
+            memory: 4700Mi
         devices:
           - name: "sdb"
             config:
