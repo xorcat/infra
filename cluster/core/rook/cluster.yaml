@@ -448,7 +448,7 @@ spec:
               osdsPerDevice: "1"
               deviceClass: "hdd"
               metadataDevice: "nvme0n1"
-          - name: "sde"
+          - name: "sdd"
             config:
               osdsPerDevice: "1"
               deviceClass: "hdd"
