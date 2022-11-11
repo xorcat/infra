@@ -134,7 +134,7 @@ spec:
       enabled: true
       image:
         repository: postgres
-        tag: "14.5"
+        tag: "14.6"
       postgresqlUsername: postgres
       postgresqlDatabase: "${SECRET_HASSDB_PASSWORD}"
       postgresqlDataDir: "/data/pgdata"
