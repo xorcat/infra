@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: prometheus-community
         namespace: flux-system
-      version: 41.x
+      version: 42.x
   install:
     crds: Create
   timeout: 10m
