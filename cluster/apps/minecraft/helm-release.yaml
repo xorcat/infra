@@ -74,7 +74,7 @@ spec:
       # storageClass:
       dataDir:
         enabled: true
-        size: 40Gi
+        Size: 40Gi
     minecraftServer:
       eula: "TRUE"
       version: "LATEST"
