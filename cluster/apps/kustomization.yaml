@@ -7,6 +7,7 @@ resources:
   - mapsapi-test
   - gitlab
   - media
+  - minecraft
   - homeassistant
   - kube-system
   - networking
