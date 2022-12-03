@@ -10,5 +10,5 @@ spec:
   routes:
     - match: HostSNI(`*`)
       services:
-        - name: to-minecraft
+        - name: to-minecraft-minecraft
           port: 25565
