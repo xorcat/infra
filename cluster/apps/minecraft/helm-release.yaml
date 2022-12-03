@@ -70,6 +70,11 @@ spec:
       requests:
         cpu: 1
         memory: 2048Mi
+    persistence:
+      # storageClass:
+      dataDir:
+        enabled: true
+        size: 40Gi
     minecraftServer:
       eula: "TRUE"
       version: "LATEST"
@@ -78,8 +83,3 @@ spec:
       ops: RosieBbb
       maxPlayers: 20
       difficulty: medium
-      persistence:
-        # storageClass:
-        dataDir:
-          enabled: true
-          size: 40Gi
