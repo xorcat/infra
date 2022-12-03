@@ -83,6 +83,13 @@ spec:
         protocol: TCP
         tls:
           enabled: false
+      minecraft:
+        port: 25565
+        expose: true
+        exposedPort: 25565
+        protocol: TCP
+        tls:
+          enabled: false
       web:
         redirectTo: websecure
       websecure:

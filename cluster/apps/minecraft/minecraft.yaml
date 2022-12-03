@@ -1,0 +1,14 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: minecraft-server
+  namespace: minecraft
+spec:
+  entryPoints:
+    - ssh
+  routes:
+    - match: HostSNI(`*`)
+      services:
+        - name: to-minecraft
+          port: 25565

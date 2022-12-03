@@ -18,6 +18,7 @@ resources:
   # - my-k8s-gateway.yaml
   - metallb.yaml
   - metrics-server.yaml
+  - minecraft.yaml
   # - nfs-provisioner.yaml
   - prometheus.yaml
   # - rook.yaml

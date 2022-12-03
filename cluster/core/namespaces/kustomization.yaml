@@ -5,6 +5,7 @@ resources:
   - cert-manager.yaml
   - metallb-system.yaml
   - monitoring.yaml
+  - minecraft.yaml
   - networking.yaml
   - nfs-provisioner.yaml
   - rook-ceph.yaml
