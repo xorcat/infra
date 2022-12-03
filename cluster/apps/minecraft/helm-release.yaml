@@ -75,6 +75,7 @@ spec:
       version: "LATEST"
       type: "VANILLA"
       motd: "hey frens"
+      ops: RosieBbb
       maxPlayers: 20
       difficulty: medium
       persistence:
