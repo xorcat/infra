@@ -22,7 +22,7 @@ spec:
       TZ: "Australia/Brisbane"
     image:
       repository: ghcr.io/onedr0p/tautulli
-      tag: 2.10.5
+      tag: 2.11.1
     service:
       main:
         ports:
