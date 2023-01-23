@@ -61,8 +61,9 @@ spec:
     #           - "hass.${SECRET_INTERNAL_DOMAIN}"
     #           - "hass.${SECRET_DOMAIN}"
     #         secretName: ha-int-tls
-    env:
+    extraEnv:
       TZ: "Australia/Brisbane"
+      ALLOW_CHEATS: true
     strategyType: Recreate
     resources:
       limits:
