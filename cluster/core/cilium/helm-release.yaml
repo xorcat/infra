@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      version: 1.11.13
+      version: 1.12.6
       chart: cilium
       sourceRef:
         kind: HelmRepository
