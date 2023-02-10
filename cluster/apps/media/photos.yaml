@@ -90,7 +90,7 @@ spec:
       image:
         registry: ghcr.io
         repository: zcube/bitnami-compat/mariadb
-        tag: 10.10.2
+        tag: 10.10.3
       architecture: standalone
       auth:
         database: photoprism
