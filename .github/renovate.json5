@@ -54,6 +54,13 @@
       "separateMinorPatch": true,
       "ignoreDeprecated": true
     },
+    {
+      "matchPackagePatterns": ["cilium"],
+      "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["minor"],
+      "labels": ["renovate/helm", "dep/minor"],
+      "automerge": false
+    },
     // global docker datasource settings
     {
       "matchDatasources": ["docker"],
