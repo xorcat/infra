@@ -9,6 +9,7 @@ resources:
   - operator.yaml
   - cluster.yaml
   - storageclass-fast-block.yaml
+  - storageclass-metadata.yaml
   - storageclass-mediafs.yaml
   - mediafs-repl.yaml
   - storageclass-unsafe.yaml

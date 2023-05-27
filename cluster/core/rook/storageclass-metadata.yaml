@@ -9,7 +9,7 @@
 apiVersion: ceph.rook.io/v1
 kind: CephBlockPool
 metadata:
-  name: fast-pool
+  name: replicated-metadata-pool-block
   namespace: rook-ceph # namespace:cluster
 spec:
   replicated:

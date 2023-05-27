@@ -13,7 +13,7 @@ metadata:
 spec:
   # Make sure you have enough nodes and OSDs running bluestore to support the replica size or erasure code chunks.
   # For the below settings, you need at least 3 OSDs on different nodes (because the `failureDomain` is `host` by default).
-  # deviceClass: hdd
+  deviceClass: hdd
   replicated:
     size: 3
 ---
