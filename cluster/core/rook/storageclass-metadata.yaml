@@ -14,7 +14,7 @@ metadata:
 spec:
   replicated:
     size: 3
-  deviceClass: ssd
+      #  deviceClass: ssd
 ---
 # apiVersion: ceph.rook.io/v1
 # kind: CephBlockPool
