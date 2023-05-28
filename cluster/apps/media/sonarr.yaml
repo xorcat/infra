@@ -41,7 +41,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: sonarrmigrate-config
+        existingClaim: sonarrmigrate-radarr-config
       media:
         enabled: true
         existingClaim: media
