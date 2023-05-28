@@ -41,11 +41,7 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: standard
-        size: 5Gi
-        accessMode: ReadWriteOnce
-        annotations:
-          helm.sh/resource-policy: "keep"
+        existingClaim: sonarrmigrate-config
       media:
         enabled: true
         existingClaim: media
