@@ -132,5 +132,4 @@ spec:
         accessMode: ReadOnlyMany
         subPath: media
       config:
-        accessMode: ReadWriteOnce
-        size: 50Gi
+        existingClaim: plexmigrate-radarr-config
