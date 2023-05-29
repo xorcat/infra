@@ -132,4 +132,4 @@ spec:
         accessMode: ReadOnlyMany
         subPath: media
       config:
-        existingClaim: plexmigrate-radarr-config
+        claimName: plexmigrate-radarr-config
