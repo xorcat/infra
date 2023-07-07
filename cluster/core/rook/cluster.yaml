@@ -274,10 +274,10 @@ spec:
       - name: "w06-evrs"
         resources:
           requests:
-            memory: 4Gi
+            memory: 3Gi
             cpu: 1
           limits:
-            memory: 4Gi
+            memory: 3Gi
         devices:
           - name: "sdb"
             config:
