@@ -5,7 +5,7 @@ resources:
   - default
   - harbor
   - mapsapi-test
-#  - gitlab
+  - gitlab
   - media
 #  - minecraft
   - homeassistant
