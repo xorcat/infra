@@ -24,16 +24,11 @@ spec:
     remediation:
       retries: 3
   values:
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                    - amd64
+    nodeSelector:
+      kubernetes.io/arch: amd64
     global:
+      nodeSelector:
+        kubernetes.io/arch: amd64
       hosts:
         domain: "${SECRET_INTERNAL_DOMAIN}"
         https: true
