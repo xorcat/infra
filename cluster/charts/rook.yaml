@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=/Users/xorcat/tmp/schema/helmrepository-source-v1beta2.json
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: rook
